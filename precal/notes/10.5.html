@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+    <head>
+        <title>10.5 &mdash; Matrix Algebra</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/10.4.html">&laquo; 10.4</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/11.1.html">11.1 &raquo;</a></td></tr></table>
+
+            <h2>10.5 &mdash; Matrix Algebra</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+
+            <h3>Matrix Equality</h3>
+
+            Consider two matrices of size $m \times n$, $A$ and $B$.<br>
+            <br>
+            We say that $A=B$ if $a_{ij} = b_{ij}$ for $i=1,\ldots, m$ and $j=1,\ldots,n$.
+            <div class="example">
+                Let $A=\begin{bmatrix} x \\ 2 \end{bmatrix}$, $B = \begin{bmatrix} 3 \\ x+y \end{bmatrix}$. When is $A=B$?
+                <div class="solution">
+                    $x = 3$, $y=-1$
+                </div>
+            </div>
+
+            <h3>Matrix Addition / Subtraction</h3>
+
+            Consider two matrices of size $m \times n$, $A$ and $B$. Then the sum (difference) of these matrices will also be of size $m \times n$. Note that sum (difference) is only defined if the matrices are of equal size.<br>
+            <br>
+            The $i,j$ component of the sum (difference), $(A\pm B)_{ij}$, is given by $a_{ij} \pm b_{ij}$.<br>
+            <br>
+            Note that $A+B = B+A$, but $A-B \neq B-A$ as in normal addition / subtraction.
+
+            <div class="example">
+                If $A = \begin{bmatrix} 0 & -4 & 4 \\ 4 & -3 & 2 \end{bmatrix}$ and $B = \begin{bmatrix} -1 & 2 & -3 \\ 1 & -1 & 3 \end{bmatrix}$, compute $A+B$ and $A-B$.
+                <div class="solution">
+                    $A+B = \begin{bmatrix} -1 & -2 & 1 \\ 5 & -4 & 5 \end{bmatrix}$<br>
+                    <br>
+                    $A-B = \begin{bmatrix} 1 & -6 & 7 \\ 3 & -2 & -1 \end{bmatrix}$
+                </div>
+            </div>
+
+            <h3>Scalar Multiplication</h3>
+
+            A real number is called a <u>scalar</u>. If $\alpha$ is some scalar, and $A$ is any matrix, then $\alpha A$ is called a scalar multiple of $A$.<br>
+            <br>
+            This is defined as $(\alpha A)_{ij} = \alpha a_{ij}$.<br>
+            <br>
+            Note that $\alpha A = A \alpha$.
+
+            <div class="example">
+                If $A = \begin{bmatrix} 0 & -4 & 4 \\ 4 & -3 & 2 \end{bmatrix}$ and $B = \begin{bmatrix} -1 & 2 & -3 \\ 1 & -1 & 3 \end{bmatrix}$, compute $2A-3B$.
+                <div class="solution">
+                    $2A-3B = \begin{bmatrix} 3 & -14 & 17 \\ 5 & -3 & -5 \end{bmatrix}$
+                </div>
+            </div>
+
+            <h3>Vectors</h3>
+            A <u>vector</u> is matrix with only one inherent dimension. A vector that is size $n \times 1$ is called a <u>column vector</u>:
+            $$
+                \begin{bmatrix}
+                    a_1 \\
+                    a_2 \\
+                    \vdots \\
+                    a_n
+                \end{bmatrix}
+            $$
+            and a vector that is size $1 \times n$ is called a <u>row vector</u>:
+            $$
+                \begin{bmatrix}
+                    a_1 &
+                    a_2 &
+                    \cdots &
+                    a_n
+                \end{bmatrix}
+            $$
+            Note that the rows of a matrices are row vectors and the columns of a matrix are column vectors! So you can think of a matrix as a collection of column vectors or a stack of row vectors.
+
+            <h3>Inner products between vectors</h3>
+            Consider two vectors of same length (both row, both column, or mixed - it doesn't matter). The <u>inner product</u> between these vectors is defined as:
+            $$
+                \sum_{i=1}^n a_i b_i = a_1b_1 + a_2b_2 + \ldots + a_nb_n
+            $$
+            Think of the inner product as two vectors being stamped or overlayed (component-wise product), and then being consolidated to a single value through addition.
+            $$
+                \begin{matrix}
+                     & [ a_1 & a_2 & \ldots & a_n ] & & \\
+                    \downarrow & [ b_1 & b_2 & \ldots & b_n ] & & \\
+                    & [ a_1b_1 & a_2b_2 & \ldots & a_nb_n ] & \rightarrow & \sum_{i=1}^n a_i b_i
+                \end{matrix}
+            $$
+
+            <div class="example">
+                Compute the inner product between:
+                $$
+                    X = \begin{bmatrix} -2 & 2 & 6 & -5 \end{bmatrix}, \;\; 
+                    Y = \begin{bmatrix} 1 \\ 7 \\ 3 \\ 6 \end{bmatrix}
+                $$
+                <div class="solution">
+                    0
+                </div>
+            </div>
+
+            <h3>Matrix Multiplication &mdash; Existence and Dimensionality</h3>
+            Consider two matrices: $A$ and $B$. The matrix product, $AB$, is defined only if the number of columns in the first matrix, $A$, is equal to the number of rows in the second matrix, $B$.<br>
+            <br>
+            If so, the resulting product, $AB$, is well-defined and will have the same number of rows as $A$ and the same number of columns as $B$.<br>
+            <br>
+            The first thing you should consider when multiplying two matrices is to check if the sizes are compatible and inspect what the dimensions (size) of the resulting matrix should be.<br>
+            <br>
+            Suppose you are given $A$ who is size $m \times n$, and $B$ who is size $q \times r$, and you'd like to compute $AB$.
+            <ol>
+                <li>Write the matrix sizes next to each in the order the matrices are being multiplied: $(m \times n)(q \times r)$.</li>
+                <li>Check if the inner dimensions are the same (check if $n=q$). If they are, the product $AB$ is defined. If not, the product , $AB$, is not defined</li> 
+                <li>If the product is defined, look at the outer dimensions ($m \times r$). The matrix product, $AB$, will be of this size.</li>
+            </ol>
+
+            <div class="example">
+                Consider the following two matrices:
+                $$
+                    A = 
+                    \begin{bmatrix}
+                        5 & -9 & 4 & 3 \\
+                        6 & 1 & 8 & -10 \\
+                        -1 & 8 & 2 & -1
+                    \end{bmatrix}, \;\; 
+                    B = 
+                    \begin{bmatrix}
+                        2 & -3 \\
+                        -4 & 1 \\
+                        1 & 1 \\
+                        3 & -3
+                    \end{bmatrix}
+                $$
+                Is the product $AB$ defined? If so, what are its dimensions? Is the product $BA$ defined? If so, what are its dimensions?
+                <div class="solution">
+                    $AB$ is defined and is of size $3 \times 2$.<br>
+                    $BA$ is not defined.
+                </div>
+            </div>
+
+            <h3>Matrix Multiplication &mdash; Definition and Computation</h3>
+            Let $A$ be a matrix of size $m \times n$.<br>
+            Let $B$ be a matrix of size $n \times r$.<br>
+            <br>
+            We want to compute $C = AB$ (which is defined and size $m \times r$).<br>
+            Specifically, we want to compute $c_{ij}$ for $i=1, \ldots, m$, $j=1, \ldots, r$.<br>
+            <br>
+            The $i,j$ element of the product $AB$ is defined to be the inner product between row $i$ of $A$ and column $j$ of $B$. Even more specifically,
+            $$
+                c_{ij} = \sum_{k=1}^r a_{ik}b_{kj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \ldots + a_{ir}b_{rj}
+            $$
+
+
+            <div class="example">
+                Consider the following two matrices:
+                $$
+                    A = 
+                    \begin{bmatrix}
+                        5 & -9 & 4 & 3 \\
+                        6 & 1 & 8 & -10 \\
+                        -1 & 8 & 2 & -1
+                    \end{bmatrix}, \;\; 
+                    B = 
+                    \begin{bmatrix}
+                        2 & -3 \\
+                        -4 & 1 \\
+                        1 & 1 \\
+                        3 & -3
+                    \end{bmatrix}
+                $$
+                Compute $AB$.
+                <div class="solution">
+                    $$
+                        AB =
+                        \begin{bmatrix}
+                            59 & -29 \\
+                            -14 & 21 \\
+                            -35 & 16
+                        \end{bmatrix}
+                    $$
+                </div>
+            </div>
+
+            <div class="example">
+                Consider the matrices:
+                $$
+                    A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}, \;\; 
+                    B = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+                $$
+                Compute $AB$ and $BA$.
+                <div class="solution">
+                    $AB = A$ and $BA = A$.
+                </div>
+            </div>
+
+            Some various properties:
+            <ul>
+                <li>For any square matrix $A$, $AI = IA = A$, where $I$ is the identity matrix of the same size as $A$.</li>
+                <li>Note that $AB \neq BA$ in general.</li>
+                <li>For appropriately sized matrices, $ABC = A(BC) = (AB)C$.</li>
+                <li>For appropriately sized matrices, $A(B+C) = AB + AC$. Note that this is not the same as $BA + CA$ which may not even be defined.</li>
+            </ul>
+
+            <div class="example">
+                Compute $ABC$ if
+                $$
+                    A = \begin{bmatrix} 1 & 0 & 1 \\ -1 & 1 & 1 \end{bmatrix}, \;\;
+                    B = \begin{bmatrix} 1 & -1 \\ -1 & -1 \\ -1 & -1 \end{bmatrix}, \;\;
+                    C = \begin{bmatrix} 1 & -2 \\ 2 & 1 \end{bmatrix}
+                $$
+                
+                <div class="solution">
+                    $$
+                        ABC =
+                        \begin{bmatrix}
+                            -4.0 & -2.0 \\
+                            -5.0 & 5.0
+                        \end{bmatrix}
+                    $$
+                </div>
+            </div>
+
+            <h3>The Inverse Matrix</h3>
+
+            For a square matrix, $A$, a matrix $B$ such that $AB = BA = I$ is called the inverse of $A$, and is denoted $B=A^{-1}$.<br>
+            <br>
+            Not all matrices have an inverse matrix. Those who do not are said to be <u>singular</u>. A matrix who has an inverse is said to be <u>nonsingular</u>.<br>
+            <br>
+            When a matrix is nonsingular, its inverse is unique.
+
+            <h3>Determining the Inverse Matrix (or lack of existence thereof)</h3>
+            Basic steps for a (square) matrix, $A$:
+            <ol>
+                <li>Set up an augmented matrix with the identity on the right: $D = [\; A \; | \; I \; ]$</li>
+                <li>Use row operations on $D$ to convert the left side (side that contains $A$ initially) into $I$. This will change the right side of $D$ (side that contains $I$ initially).</li>
+                <li>If successful, the left side of $D$ will contain $I$, and the right-side where $I$ used to be, now contains $A^{-1}$.</li>
+                <li>If not successful, a row of the left-side has all zeros and the matrix is singular (no inverse exists).</li>
+            </ol>
+            
+            <div class="example">
+                Determine $A^{-1}$ (if it exists) for
+                $$
+                    A =
+                    \begin{bmatrix}
+                        -1 & 2 &-3 \\
+                        2 & 1 & 0 \\
+                        4 & -2 & 5
+                    \end{bmatrix}
+                $$
+                <div class="solution">
+                    $$
+                        A^{-1} = 
+                        \begin{bmatrix}
+                            -5 & 4 & -3 \\
+                            10 & -7 & 6 \\
+                            8 & -6 & 5
+                        \end{bmatrix}
+                    $$                    
+                </div>
+            </div>
+
+            <h3>Relationships to Linear Systems</h3>
+            Consider the three dimensional system:
+            \begin{align*}
+                a_1x + b_1y + c_1z &= \frac{1}{4} \\
+                a_2x + b_2y + c_2z &= -2 \\
+                a_3x + b_3y + c_3z &= -1
+            \end{align*}
+            This system can also be represented by the matrix equation:
+            $$
+                AX = B
+            $$
+            where
+            $$
+                A = \begin{bmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{bmatrix}, \;\;
+                X = \begin{bmatrix} x \\ y \\ z \end{bmatrix}, \;\;
+                B = \begin{bmatrix} \frac{1}{4} \\ -2 \\ -1 \end{bmatrix}
+            $$
+            Verify this by computing the matrix product, $AX$, and using the definition of matrix equality.<br>
+            <br>
+            Finding the solution to this system means determining the matrix $X$ of unknowns. Therefore if the matrix $A$ is nonsingular (has an inverse), then we can compute
+            \begin{align*}
+                AX &= B \\
+                A^{-1}A X &= A^{-1}B \\
+                I X &= A^{-1}B \\
+                X &= A^{-1}B 
+            \end{align*}
+            So if we know the inverse of the coefficient matrix, $A$, we can find the solution vector $X$, simply by computing the matrix product, $A^{-1}B$.
+            <div class="example">
+                Find the solution to the system described previously if we are given that:
+                $$
+                    A^{-1} = 
+                    \begin{bmatrix}
+                        -2 & 1 & -\frac{1}{2} \\
+                        -1 & -1 & \frac{1}{4} \\
+                        2 & -\frac{1}{4} & -1
+                    \end{bmatrix}
+                $$
+                <div class="solution">
+                    $$
+                        X = \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} -2 \\ 1.5 \\ 2 \end{bmatrix}
+                    $$                    
+                </div>
+            </div>
+
+            <div class="example">
+                Find $x$ in the solution to the system:
+                \begin{align*}
+                    a_1x + b_1y &= -\frac{1}{2} \\
+                    a_2x + b_2y &= 1
+                \end{align*}
+                if
+                $$
+                    \begin{bmatrix} a_1 & b_1 \\ a_2 & b_2 \end{bmatrix}^{-1} = \begin{bmatrix} -2 & -\frac{1}{3} \\ 4 & \frac{1}{2} \end{bmatrix}
+                $$
+                <div class="solution">
+                    $x = \frac{2}{3}$
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

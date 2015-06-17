@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+        <title>3.6 &mdash; Complex Zeros &mdash; Fundamental Theorem of Algebra</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/3.5.html">&laquo; 3.5</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/3.7.html">3.7 &raquo;</a></td></tr></table>
+
+            <h2>3.6 &mdash; Complex Zeros &mdash; Fundamental Theorem of Algebra</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+            Suppose $f(x)$ is a polynomial of degree $n$ with complex coefficients. Then (counting multiplicity) $f$ has <u>exactly</u> $n$ roots.<br>
+            <br>
+            This also means a polynomial of degree $n$ may <u>always</u> be decomposed into <u>factored form</u>,
+            $$
+                f(x) = A(x-r_1)(x-r_2)\ldots(x-r_n)
+            $$
+            assuming we know the $n$ roots, $r_1, r_2, \ldots, r_n$.
+            <div class="example">
+                Factor the function, $f(x) = x^2 + 1$, completely.
+                <div class="solution">
+                    $f(x) = (x+i)(x-i)$
+                </div>
+            </div>
+
+            <div class="example">
+                Factor the function, $f(x) = x^3 + 1$, completely.
+                <div class="solution">
+                    $\displaystyle f(x) = \left(x+1\right)\left(x-\left(\frac{1}{2} - \frac{\sqrt{3}}{2}i\right)\right)\left(x-\left(\frac{1}{2} + \frac{\sqrt{3}}{2}i\right)\right)$
+                </div>
+            </div>
+
+            <h3>Conjugate Zeros</h3>
+            If $f(x)$ is a polynomial with <u>real</u> coefficients and $z$ is a complex number such that $f(z) = 0$ ($z$ is a root), then $\bar{z}$ is also a root of $f$.<br>
+            <br>
+            
+            <div class="example">
+                Determine all remaining zeros of a polynomial with real coefficients and degree 5 having zeros $3, 4-3i, -2+5i$.
+                <div class="solution">
+                    $4+3i, -2-5i$
+                </div>
+            </div>
+
+            <div class="example">
+                Select from the following the polynomial with real coefficients of degree 5 and zeros of $1, 2-4i, -3+i$.
+                
+                <ol>
+                    <li>$(x-1)(x+2+4i)(x+2-4i)(x+3+i)(x+3-i)$</li>
+                    <li>$(x-1)(x-2+4i)(x-2-4i)(x+3+i)(x+3-i)$</li>
+                    <li>$(x-1)(x+2+4i)(x+2-4i)(x-3+i)(x-3-i)$</li>
+                    <li>$(x-1)(x-2+4i)(x-2-4i)(x-3+i)(x-3-i)$</li>
+                </ol>
+                <div class="solution">
+                    Option 2.
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

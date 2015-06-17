@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+    <head>
+        <title>11.1 &mdash; Sequences</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/10.5.html">&laquo; 10.5</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/11.2.html">11.2 &raquo;</a></td></tr></table>
+
+            <h2>11.1 &mdash; Sequences</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+            Consider the list:<br>
+            $$
+            1, 3, 5, \ldots
+            $$
+            This list is called <u>sequence</u>. More specifically, a <u>sequence</u> is function whose domain is the integers. So for the above,
+            $$
+                f(1) = 1, f(2) = 3, f(3) = 5, \ldots
+            $$
+            We call each item in the sequence a <u>term</u>. We usually denote terms in a sequence with a subscript. The $n$th term in above sequence would be:
+            $$
+                f(n) = a_n, \; n = 1, 2, 3, \ldots
+            $$
+            Often the whole sequence is denoted as: $\{a_n\}$. In the above case, we can <u>explicitly</u> define the $n$th term in the sequence:
+            $$
+                a_n = 2n-1
+            $$
+            <div class="example">
+                Write the first three terms from the sequence, $\displaystyle \left\{ \frac{n}{n+2} \right\}$.
+                <div class="solution">
+                    $\displaystyle \frac{1}{3}, \frac{2}{4}, \frac{3}{5}$
+                </div>
+            </div>
+
+            The sequence in the next example is called an <u>alternating</u> sequence.
+
+            <div class="example">
+                Write the first four terms from the sequence, $\displaystyle \left\{ \left( \frac{-1}{2} \right)^{n+1} \right\}$.
+                <div class="solution">
+                    $\displaystyle \frac{1}{4}, \frac{-1}{8}, \frac{1}{16}, \frac{-1}{32}$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the $n$th term for the sequence:
+                $$
+                    \frac{1}{3}, \frac{1}{9}, \frac{1}{27}, \ldots
+                $$
+                <div class="solution">
+                    $\displaystyle a_n=\left(\frac{1}{3}\right)^{n-1}$
+                </div>
+            </div>
+
+            <h3>Recursive Sequences</h3>
+            
+            A sequence whose $n$th term is defined in terms of the previous terms, is called a <u>recursive</u> sequence. For such a sequence, we need initial term(s) to begin writing out the sequence.
+
+            <div class="example">
+                Let $a_1 = 1$, $a_2 = 1$, and $a_n = a_{n-1} + a_{n-2}$ for $n \geq 3$. Write the first 7 terms of this sequence.
+                <div class="solution">
+                    $1, 1, 2, 3, 5, 8, 13$
+                </div>
+            </div>
+
+            The following example is called the factorial function and is denoted: $a_n = n!$.
+
+            <div class="example">
+                This sequence starts at 0. Let $a_0 = 0! = 1$ and $a_n = n! = n \cdot a_{n-1} = n \cdot (n-1)!$ for $n \geq 1$.<br>
+                <br>
+                Write out the first five terms of this sequence.
+                <div class="solution">
+                    $1, 1, 2, 6, 24$
+                </div>
+            </div>
+
+            <h3>Series</h3>
+            A <u>series</u> is a sum of a sequence. It might be finite or infinite. For now, we will consider finite series.<br>
+            <br>
+            Recall summation notation. The sum of the first $N$ terms in a sequence, $\{ a_n \}$, would be denoted:
+            $$
+                \sum_{n=1}^N a_n = a_1 + a_2 + \cdots + a_N
+            $$
+            Some properties of sums:
+            <ol>
+                <li>If $K$ is a constant, then $$\sum_{n=1}^N K a_n = K \sum_{n=1}^N a_n$$</li>
+                <li>If $\{a_n\}$ and $\{ b_n \}$ are two sequences, then $$\sum_{n=1}^N (a_n + b_n) = \sum_{n=1}^N a_n + \sum_{n=1}^N b_n$$</li>
+            </ol>
+
+            <div class="example">
+                Compute the sum for
+                $$
+                    \sum_{j=2}^4 j^2 - 2j
+                $$
+                <div class="solution">
+                    $13$
+                </div>
+            </div>
+
+            <div class="example">
+                Write out the sum for
+                $$
+                    \sum_{i=1}^{100} f(x_i) \Delta x
+                $$
+                if $f(x_i) = 2i$ and $\Delta x = 0.1$.
+                <div class="solution">
+                    $0.2 + 0.4 + 0.6 + \ldots + 20$
+                </div>
+            </div>
+
+            <div class="example">
+                Write out the sum for
+                $$
+                    \sum_{n=1}^5 (-1)^{n-1} \ln\left(\frac{n+2}{2n-1}\right)
+                $$
+                <div class="solution">
+                    $\displaystyle \ln\left(\frac{49}{24}\right)$
+                </div>
+            </div>
+
+            <div class="example">
+                Which of the following is true:
+                \begin{align}
+                    \sum_{j=1}^7 \frac{1}{j^2+2} &= \sum_{j=1}^3 \frac{1}{j^2+2} + \sum_{j=5}^7 \frac{1}{j^2 +2} \\
+                    \sum_{j=1}^7 \frac{1}{j^2+2} &= \sum_{k=1}^4 \frac{1}{k^2+2} + \sum_{l=5}^7 \frac{1}{l^2 +2} \\
+                    \sum_{j=1}^7 \frac{1}{j^2+2} &= \sum_{k=1}^3 \frac{1}{k^2+2} + \sum_{l=1}^7 \frac{1}{l^2 +2} \\
+                    \sum_{j=1}^7 \frac{1}{j^2+2} &= \sum_{j=1}^4 \frac{1}{j^2+2} + \sum_{j=4}^7 \frac{1}{k^2 +2} 
+                \end{align}
+                <div class="solution">
+                    Option 2.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

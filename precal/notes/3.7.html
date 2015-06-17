@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+    <head>
+        <title>3.7 &mdash; Rational Functions</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/3.6.html">&laquo; 3.6</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/3.8.html">3.8 &raquo;</a></td></tr></table>
+
+            <h2>3.7 &mdash; Rational Functions</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+
+            A <u>rational</u> function is one of the form:
+            $$
+                f(x) = \frac{g(x)}{h(x)}
+            $$
+            where $g$ and $h$ are polynomials. The <u>domain</u> of a rational function is all real numbers except those that make the denominator, $h(x)$, zero.
+
+            <div class="example">
+                Find the domain of the following function:
+                $$
+                    f(x) = \frac{x^4-6x+13}{x^2-x-12}
+                $$
+                <div class="solution">
+                    $(-\infty, -3) \cup (-3, 4) \cup (4, \infty)$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the domain of the rational function with the following graph:<br>
+                <br>
+                <div class="img-wrap"><img class="darkbox" src="../../precal/img/3.7.1.png"></div>
+
+                <div class="solution">
+                    $(-\infty, -2) \cup (-2, 1) \cup (1, \infty)$
+                </div>
+            </div>
+
+            <h3>Vertical Asymptotes and Jump Discontinuities</h3>
+            Rational functions often have vertical asymptotes (as seen from the previous example).<br>
+            <br>
+            For a function $f(x)$, a <u>vertical asymptote</u> is said to occur at a location, $x=c$, if $f(x) \rightarrow \infty$ or $f(x) \rightarrow -\infty$ as $x \rightarrow c$.<br>
+            <br>
+            Consider a rational function, $f(x) = g(x) / h(x)$. Then $f(x)$ has a vertical asymptote at a location $x=c$ if:
+            <ol>
+                <li>$h(c) = 0$ and $g(c) \neq 0$</li>
+                <li>$h(c) = 0$ and $g(c) = 0$, but the multiplicity is greater in $h(x)$</li>
+            </ol>
+
+            <br>
+
+            On the other hand, if $h(c) = 0$ and $g(c) = 0$ and the multiplicity of the root is the same for both, then the rational function, $f(x)$, has a <u>jump discontinuity</u> at $x=c$. This is a small hole in the graph at $x=c$.
+
+            <br>
+
+            <div class="example">
+                Find any vertical asymptotes, jump discontinuities, and roots of:
+                $$
+                    f(x) = \frac{x^2 + x -2}{x^2-x}
+                $$
+                <div class="solution">
+                    vertical asymptote: $x=0$<br>
+                    root: $x=-2$<br>
+                    jump: $x=1$
+                </div>
+            </div>
+
+            <div class="example">
+                Find any vertical asymptotes, jump discontinuities, and roots of:
+                $$
+                    f(x) = \frac{2x^3 - 8x}{2x-x^2}
+                $$
+                <div class="solution">
+                    vertical asymptote: none<br>
+                    root: $x=-2$<br>
+                    jump: $x=0,2$
+                </div>
+            </div>
+
+            <br>
+
+            <h3>Horizontal asymptotes</h3>
+
+            For a function $f(x)$, a <u>horizontal asymptote</u> is said to occur at a location, $y=c$, if $x \rightarrow \infty$ or $x \rightarrow -\infty$ as $f(x) \rightarrow c$.<br>
+            <br>
+            
+            Consider a rational function, $f(x) = g(x) / h(x)$, with no common factors between $g$ and $h$. If there are common factors, we note that this means we have a jump discontinuity at that location, and remove these factors from $g$ and $h$. Regarding horizontal asymptotes, we have the following:
+
+            <ol>
+                <li>If degree$(g) \lt $ degree$(h)$, there is a horizontal asymptote at $y=0$.</li>
+                <li>If degree$(g) \gt $ degree$(h)$, there is no horizontal asymptote.</li>
+                <li>If degree$(g) = $ degree$(h)$, there is a horizontal asymptote at $y=$ coefficient of largest power of $g(x)$ / coefficient of the largest power of $h(x)$.</li>
+            </ol>
+
+            <div class="example">
+                Determine all the horizontal asymptotes of $f(x) = \frac{x(x+2)}{1-x^2}$
+                <div class="solution">
+                    $y=-1$
+                </div>
+            </div>
+
+            <div class="example">
+                Which statements are false for the function, $f(x) = \frac{x-x^2}{x(x-2)}$?<br>
+                <br>
+                <ol>
+                    <li>The $y$-intercept is $-1$.</li>
+                    <li>The domain of $f$ is $(\infty, 0) \cup (0, 2) \cup (2, \infty)$.</li>
+                    <li>The graph has one horizontal asymptote at $y=-1$.</li>
+                    <li>The $x$-intercept of the graph is $1$.</li>
+                    <li>The graph of $f$ has one vertical asymptote at $x=2$.</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>False</li>
+                        <li>True</li>
+                        <li>True</li>
+                        <li>True</li>
+                        <li>True</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="example">
+                Which is the equation for the following graph?<br>
+                <br>
+
+                <div class="img-wrap"><img class="darkbox" src="../../precal/img/3.7.2.png"></div>
+
+                <br>
+
+                <ol>
+                    <li>$y=\frac{(x+1)(x+2)}{x^2+2x}$</li>
+                    <li>$y=-\frac{(x+1)(x+2)}{x^2-2x}$</li>
+                    <li>$y=-\frac{(x+1)(x+2)}{x^2+2x}$</li>
+                    <li>$y=-\frac{(x+1)(x+2)}{-x-1}$</li>
+                </ol>
+                <div class="solution">
+                    Option 3.
+                </div>
+            </div>
+
+            <h3>Oblique Asymptotes</h3>
+            For a rational function, $f(x) = g(x) / h(x)$, with no common factors, we stated that there is no horizontal asymptote if degree$(g) \gt $ degree$(h)$. However, in the special case that degree$(g) = $ degree$(h)+1$, there is what is called an <u>oblique asymptote</u>.<br>
+            <br>
+            An oblique asymptote occurs when $f(x) \rightarrow mx+b$ for some $m,b$ as $x \rightarrow \infty$ or $x \rightarrow -\infty$.<br>
+            <br>
+            In the case that an oblique asymptote exists, it is given by the quotient of the polynomial long division process.<br>
+
+            <br>
+
+            <div class="img-wrap"><img class="darkbox" src="../../precal/img/3.7.3.png"></div>
+
+            <br>
+            The above is an example of a rational function with an oblique asymptote. It is the function,
+            $$
+                f(x) = \frac{x^3-x}{2(x^2-2x+1)}
+            $$
+            The oblique asymptote is the line,
+            $$
+                y = \frac{1}{2}x + 1
+            $$
+            
+            <br>
+
+            <div class="example">
+                Find the equation of the oblique asymptote for the function, $f(x) = \frac{x^2-7x-6}{x-6}$.
+                <div class="solution">
+                    $y = x - 1$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the equation of the oblique asymptote for the function, $f(x) = \frac{2x^2}{x-1}$.
+                <div class="solution">
+                    $y = 2x + 2$
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+        </div>
+    </body>
+</html>

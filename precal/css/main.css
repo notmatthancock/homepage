@@ -1,0 +1,87 @@
+table#class-info { width: 100%; }
+table#class-info tr td:first-child {
+}
+
+table#calendar-headers {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background: #707070;
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 0 5px 0;
+}
+
+div#calendar {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #353535;
+}
+div#calendar table { width: 100%; border-collapse: collapse; }
+div#calendar table tr td:first-child { width: 15%; }
+div#calendar table tr td:nth-child(2) { width: 25%; }
+div#calendar table tr:nth-child(even) { background: #606060; }
+div#calendar table tr td {
+    text-align: center;
+    padding: 8px 0 8px 0;
+    font-size: 0.85em;
+}
+
+ul#notes { margin-bottom: 0; padding: 0; list-style: none; }
+ul#notes li { padding: 2px 0px 2px 0; background: #333; margin: 0; }
+ul#notes li span { display: block; padding-left: 2px; }
+ul#notes li span:hover { color: #EAEA85; cursor: pointer; background: #292929; }
+ul#notes table { width: 100%; border-collapse: collapse; display: none; font-size: 0.9em; }
+ul#notes table tr:nth-child(even) { background: #606060; }
+ul#notes table tr:nth-child(odd) { background: #353535; }
+ul#notes table th { background: #707070; border-bottom: 3px solid #404040; color: #fff; }
+ul#notes table th { text-align: center }
+ul#notes table td:first-child { text-align: center; width: 20%; }
+ul#notes table tr:not(:first-child):hover { background: #222; cursor: pointer; color: #EAEA85; }
+
+table#nav { width: 100%; font-size: 0.9em; }
+table#nav td:first-child { text-align: left; }
+table#nav td:last-child { text-align: right; }
+
+table.basic { width: 100%; text-align: center; }
+table.basic th { font-color: #bbb; border-bottom: 2px solid #bbb; }
+
+div.img-wrap { text-align: center; }
+div.img-wrap img { width: 40%; }
+
+a.solution { float: right; }
+a.solution:hover { cursor: pointer; }
+div.solution { display: none; background: #545454; padding: 15px; margin: 20px 0 0 0; }
+div.example { font-style: italic; font-size: 0.9em; padding-bottom: 100px; }
+div.example ol li { margin: 5px 0 5px 0; }
+
+img.darkbox:hover { cursor: pointer; opacity: 0.7; }
+div#darkbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
+}
+div#darkbox img {
+    padding-top: 20px;
+}
+
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+    div#main { width: 8in; margin: 0 auto; }
+    h2, h3, h4 { color: #000; }
+    table#nav,
+    div.solution,
+    a.solution { display: none; }
+    u { border-color: #000; }
+    img.darkbox, img.darkbox:hover { opacity: 1.0; }
+    div.example { padding-bottom: 3in; }
+}

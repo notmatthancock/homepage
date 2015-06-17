@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <title>4.6 &mdash; Compound Interest</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/4.5.html">&laquo; 4.5</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/4.7.html">4.7 &raquo;</a></td></tr></table>
+
+            <h2>4.6 &mdash; Compound Interest</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+            Compound interest is concerned with the relationship between a number of variables:
+            <ul>
+                <li>$P$ - is called the <u>present value</u> or <u>principle value</u>. It the amount of some substance (often money) at an initial point in time ($t=0$).</li>
+                <li>$r$ - is called the <u>annual interest rate</u> or <u>nominal rate</u>. This value determines the rate of growth of the principle.</li>
+                <li>$n$ - is the number of times the principle is compounded annually.</li>
+                <li>$A$ - is called the <u>future value</u> ($A$ for accrual or accumulation). It represents the amount the principle grows after a certain time, $t$, at a particular rate, $r$, and compounded $n$ times per year.</li>
+            </ul>
+            The relationship between these quantities is given by the compound interest formula:
+            $$
+                A = P\left(1+\frac{r}{n}\right)^{nt}
+            $$
+            where $r$ is the rate in decimal form, and $t$ is the time in years.
+
+            <div class="example">
+                Determine the future amount of a loan of \$20,000 which is compounded monthly at 10% after 4 years.
+                <div class="solution">
+                    $A = 20000 \cdot (1+\frac{0.1}{12})^{48} \approx \$29,787$
+                </div>
+            </div>
+
+            <div class="example">
+                If an investment pays 5.5% compounded quarterly, how much should you deposit now to have \$900 in two years?
+                <div class="solution">
+                    $P = \displaystyle \frac{900}{(1+\frac{0.055}{4})^8} \approx \$807$
+                </div>
+            </div>
+
+            <div class="example">
+                How long will it take money to triple if it is invested at 10% compounded quarterly?
+                <div class="solution">
+                    $\displaystyle \frac{\ln3}{4\ln\left(1+\frac{0.1}{4}\right)}$
+                </div>
+            </div>
+
+            <h3>Continuously Compounded Interest</h3>
+            Recall the number, $e \approx 2.72$. It turns out that
+            $$
+                \left(1+\frac{r}{n}\right)^{nt} \rightarrow e^{rt} \;\; \text{as} \;\; n \rightarrow +\infty
+            $$
+            Consider when $r=1$ in the graphs below:<br>
+            <br>
+            <div class="img-wrap"><img class="darkbox" src="../../precal/img/4.6.1.png"></div>
+            <br>
+            Consider when $r=t=1$. Then:
+            \begin{align*}
+                (1+1/10)^{10} &\approx 2.59 \\
+                (1+1/100)^{100} &\approx 2.70 \\
+                (1+1/1000)^{1000} &\approx 2.72
+            \end{align*}
+            Hence, when a loan is <u>compounded continuously</u>, the formula for future value given the principle, rate, and time is:
+            $$
+                A = Pe^{rt}
+            $$
+            <div class="example">
+                What is the amount in 5 years of \$9,351 invested at 6.9% compounded continuously?
+                <div class="solution">
+                    $9351 \cdot e^{0.345} \approx \$13,203$
+                </div>
+            </div>
+
+            <div class="example">
+                How many years will it take for an investment of \$30,000 to grow to \$80,000? Assume a rate of interest of 4% compounded continuously, and state the answer in terms of the natural logarithm.
+                <div class="solution">
+                    $\displaystyle \frac{\ln\left(\frac{8}{3}\right)}{0.04} \approx 17.3$ years
+                </div>
+            </div>
+
+            <div class="example">
+                What interest rate will triple an investment in 5 years if it is compounded continuously?
+                <div class="solution">
+                    $\displaystyle \frac{\ln(3)}{5} \approx 22\%$
+                </div>
+            </div>
+
+            <h3>The Effective Rate</h3>
+            The <u>effective rate</u> for compound interest is the rate that would yield the same future value as a rate compounded $n$ times per year, but only compounded once.<br>
+            <br>
+            Given some rate, $r$, and times compounded, $n$, the effective rate (call it $\tilde{r}$) satisfies this relationship:
+            $$
+                P\left(1+\frac{\tilde{r}}{1}\right)^{1\cdot t} = P\left(1+\frac{r}{n}\right)^{nt}
+            $$
+            So, we can solve for the effective rate, $\tilde{r}$:
+            $$
+                \tilde{r} = \text{effective rate} = \left(1+\frac{r}{n}\right)^{n} - 1
+            $$
+            (Note: $\tilde{r}$ is not standard notation for the effective rate. It is just used the notation as a placeholder in deriving the formula for effective rate.)
+            <div class="example">
+                Find the effective rate of interest for 5.5% compounded quarterly.
+                <div class="solution">
+                    $\displaystyle \left(1+\frac{0.055}{4}\right)^{4}-1$
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

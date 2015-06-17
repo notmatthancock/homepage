@@ -1,0 +1,148 @@
+(lp1
+(lp2
+S'3.1'
+p3
+aS'Quadratic Functions'
+p4
+aa(lp5
+S'3.2'
+p6
+aS'Power Functions'
+p7
+aa(lp8
+S'3.3'
+p9
+aS'Polynomial Functions'
+p10
+aa(lp11
+S'3.4'
+p12
+aS'Real Zeros of Polynomial Functions'
+p13
+aa(lp14
+S'3.5'
+p15
+aS'Complex Numbers'
+p16
+aa(lp17
+S'3.6'
+p18
+aS'Complex Zeros'
+p19
+aS'Fundamental Theorem of Algebra'
+p20
+aa(lp21
+S'3.7'
+p22
+aS'Rational Functions'
+p23
+aa(lp24
+S'3.8'
+p25
+aS'Polynomial and Rational Inequalities'
+p26
+aa(lp27
+S'4.1'
+p28
+aS'One-to-one and Inverse Functions'
+p29
+aa(lp30
+S'4.2'
+p31
+aS'Exponential Functions'
+p32
+aa(lp33
+S'4.3'
+p34
+aS'Logarithmic Functions'
+p35
+aa(lp36
+S'4.4'
+p37
+aS'Properties of Logarithms'
+p38
+aa(lp39
+S'4.5'
+p40
+aS'Logarithmic and Exponential Equations'
+p41
+aa(lp42
+S'4.6'
+p43
+aS'Compound Interest'
+p44
+aa(lp45
+S'4.7'
+p46
+aS'Exponential Growth and Decay'
+p47
+aa(lp48
+S'9.2'
+p49
+aS'The Parabola'
+p50
+aa(lp51
+S'9.3'
+p52
+aS'The Ellipse'
+p53
+aa(lp54
+S'9.4'
+p55
+aS'The Hyperbola'
+p56
+aa(lp57
+S'10.1'
+p58
+aS'Systems of Two Linear Equations'
+p59
+aa(lp60
+S'10.2'
+p61
+aS'Systems of Three Linear Equations'
+p62
+aa(lp63
+S'10.3'
+p64
+aS'Systems of Linear Equations'
+p65
+aS'Matrices'
+p66
+aa(lp67
+S'10.4'
+p68
+aS'Systems of Linear Equations'
+p69
+aS'Determinants'
+p70
+aa(lp71
+S'10.5'
+p72
+aS'Matrix Algebra'
+p73
+aa(lp74
+S'11.1'
+p75
+aS'Sequences'
+p76
+aa(lp77
+S'11.2'
+p78
+aS'Arithmetic Sequences'
+p79
+aa(lp80
+S'11.3'
+p81
+aS'Geometric Sequences and Series'
+p82
+aa(lp83
+S'11.4'
+p84
+aS'Mathematical Induction'
+p85
+aa(lp86
+S'11.5'
+p87
+aS'The Binomial Theorem'
+p88
+aa.

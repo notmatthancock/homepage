@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+    <head>
+        <title>11.2 &mdash; Arithmetic Sequences</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/11.1.html">&laquo; 11.1</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/11.3.html">11.3 &raquo;</a></td></tr></table>
+
+            <h2>11.2 &mdash; Arithmetic Sequences</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+            A sequence, $\{a_n\}$, is <u>arithmetic</u> if
+            $$
+                a_n = a_{n-1} + d
+            $$
+            where $d$ is a constant, called the <u>common difference</u><br>
+            <br>
+            For example,
+            $$
+                0, 3, 6, 9, 12, \ldots
+            $$
+            is arithmetic with $d=3$, and
+            $$
+                4, -1, -6, -11, \ldots
+            $$
+            is arithmetic with $d=-5$.<br>
+            <br>
+            Using the definition of an arithmetic sequence, we can find $d$ using any two consecutive terms, i.e.
+            $$
+                d = a_n - a_{n-1}
+            $$
+            <div class="example">
+                Which of the following are arithmetic? Find the common difference for those that are.
+                <ol>
+                    <li>$10, 20, 30, 40, \ldots$</li>
+                    <li>$2, 4, 8, 16, \ldots$</li>
+                    <li>$\displaystyle \frac{4}{3}, \frac{1}{3}, -\frac{2}{3}, -\frac{5}{3}, \ldots$</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>Arithmetic, $d=10$.</li>
+                        <li>Not Arithmetic.</li>
+                        <li>Arithmetic, $d=-1$.</li>
+                    </ol>
+                </div>
+            </div>
+            <h3>Explicit Formula for the $n$th term</h3>
+            So far, we've defined the arithmetic sequence recursively. However, it's not too difficult to come up with an explicit formula, using just the recursive definition:
+            \begin{align*}
+                a_n &= a_{n-1} + d \\
+                &= \left( a_{n-2} + d \right) + d \\
+                &= a_{n-2} + 2d \\
+                &= \left( a_{n-3} + d \right) + 2d \\
+                &= a_{n-3} + 3d \\
+                &= \vdots \\
+                &= a_1 + (n-1)d \\
+            \end{align*}
+            Thus, we have an explicit formula for the $n$th term in an arithmetic series (which holds for all $n = 1, 2, 3, \ldots$):
+            $$
+                a_n = a_1 + (n-1)d
+            $$
+
+            <div class="example">
+                Find the 6th term of an arithmetic sequence whose first term, $a_1= \sqrt{2}$, and common difference, $d=-sqrt{2}$.
+                <div class="solution">
+                    $-4\sqrt{2}$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the 45th term of the arithmetic sequence:
+                $$
+                    1, \frac{1}{2}, 0, -\frac{1}{2}, \ldots
+                $$
+                <div class="solution">
+                    $-21$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the $n$th term of an arithmetic sequence if $a_1=3$, and $d=-1/3$.
+                <div class="solution">
+                    $a_n = 3 - (n-1)/3 = \frac{10}{3} - \frac{n}{3}$
+                </div>
+            </div>
+
+            <div class="example">
+                Given an arithmetic sequence with $a_{21} = 65$ and $a_{41} = 125$, find the initial term and the common difference.
+                <div class="solution">
+                    $a_1=5$, $d=3$
+                </div>
+            </div>
+
+            <h3>Summing Arithmetic Sequences</h3>
+
+            Let's denote the sum of the first $n$ terms of a sequence by:
+            $$
+                S_n = \sum_{j=1}^n a_j
+            $$
+
+            If $a_j$ come from an arithmetic sequence, one can show that:
+            \begin{align*}
+                S_n &= \frac{n}{2}\left(a_1 + a_n\right) \\
+                &= n * \left( \text{average of first term and nth term} \right)
+            \end{align*}
+
+            <div class="example">
+                Given the arithmetic sequence, $\displaystyle \left\{1, \frac{1}{2}, 0, -\frac{1}{2}, \ldots \right\}$, find the sum, $S_{41}$.
+                <div class="solution">
+                    $-369$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the sum of all the multiples of 7 between 21 and 119.
+                <div class="solution">
+                    $1050$
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

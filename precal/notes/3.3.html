@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+    <head>
+        <title>3.3 &mdash; Polynomial Functions</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/3.2.html">&laquo; 3.2</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/3.4.html">3.4 &raquo;</a></td></tr></table>
+
+            <h2>3.3 &mdash; Polynomial Functions</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+
+            <h3>Summation Notation</h3>
+            $$
+                a_1 + a_2 + \ldots + a_n = \sum_{j=1}^n a_j
+            $$
+            For example,
+            $$
+                1+2+3+4 = \sum_{j=1}^4 j
+            $$
+
+            <h3>Polynomial definition</h3>
+            A <u>polynomial of degree $n$</u> is function which can be written in the form:
+            $$
+                f(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1x + a_0 = \sum_{j=0}^n a_jx^j
+            $$
+            where $n$ is a <u>non-negative integer</u>.<br>
+            <br>
+            If the roots of are known, the polynomial may also be written in <u>factored form</u>:
+            $$
+                f(x) = A(x-r_1)(x-r_2) \ldots (x-r_n)
+            $$
+            where $A$ is some constant and $r_1,r_2, \ldots r_n$ are the $n$ roots of the polynomial of degree $n$.<br>
+            <br>
+            Note that $f(r_j) = 0$ for $j=1,2,\ldots,n$.<br>
+            <br>
+            The terms, $(x-r_j)$, $j=1,2,\ldots,n$, are called the <u>factors</u> of $f$.
+
+            <h3>Properties</h3>
+            <ol>
+                <li>The <u>domain</u> of a polynomial is all real numbers &mdash; also denoted by  $\mathbb{R}$ or $(-\infty, \infty)$.</li>
+                <li>Polynomials are <u>continuous</u> functions</li>
+                <li>Polynomials are <u>smooth</u> functions</li>
+            </ol>
+
+            <br>
+
+            <div class="example">
+                Which are polynomials? What is the degree, if so?
+                <ol>
+                    <li>$y=\sqrt{2}x^5+2x-1$</li>
+                    <li>$y=5x^{\sqrt{2}}+5x-1$</li>
+                    <li>$y=(x^2+1)^2(x-3)$</li>
+                    <li>$y=x^{-1}$</li>
+                    <li>$y=\frac{x^3+2x-1}{x^2-3}$</li>
+                    <li>$y=2x^{\frac{1}{2}}+6x^2-9$</li>
+                    <li>$y=\sqrt{2x}+x$</li>
+                    <li>$y=x^0$</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>Yes, degree 5.</li>
+                        <li>No.</li>
+                        <li>Yes, degree 5.</li>
+                        <li>No.</li>
+                        <li>No.</li>
+                        <li>No.</li>
+                        <li>No.</li>
+                        <li>Yes, degree 0.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="example">
+                Find all real zeros of the function, $f(x) = (x-2)^2(x-3)(x^2+4)$.
+                <div class="solution">
+                    $x=2,3$
+                </div>
+            </div>
+
+            <h3>Root multiplicity</h3>
+            If $f(x)$ is polynomial, $r$ is a root of $f$, $(x-r)^k$ is a factor of $f$, but $(x-r)^{k+1}$ is not a factor, then $r$ is a root of <u>multiplicity</u> $k$.
+
+            <ol>
+                <li>If a root has <u>even</u> multiplicity, then the graph of $f$ only touches the x-axis at the root.</li>
+                <li>If a root has <u>odd</u> multiplicity, then the graph passes through the x-axis at the root</li>
+            </ol>
+
+            <br>
+
+            <div class="example">
+                Find all real zeros and their multiplicities for the function, $f(x) = x(x^2-1)(x-1)$.
+                <div class="solution">
+                    $x=1$, degree 2<br>
+                    $x=-1$, degree 1<br>
+                    $x=0$, degree 1
+                </div>
+            </div>
+
+            <div class="example">
+                Select the graph of the following:<br>
+                <br>
+                <div class="img-wrap"><img class="darkbox" src="../../precal/img/3.3.1.png"></div>
+                <br>
+                <ol>
+                    <li>$y=x^2(x-1)(x+1)$</li>
+                    <li>$y=x(x-1)(x+1)^2$</li>
+                    <li>$y=x(x-1)(x+1)$</li>
+                    <li>$y=x(x-1)^2(x+1)$</li>
+                </ol>
+                <div class="solution">
+                    Option 4.
+                </div>
+            </div>
+
+            <h3>Local Extrema</h3>
+            <div class="img-wrap"><img class="darkbox" src="../../precal/img/3.3.2.png"></div>
+            
+            <h3>End behavior of polynomials</h3>
+
+            If $f$ is a polynomial, then it's behavior for large $|x|$ is determined by the parity of its degree and the sign of the coefficient of its largest degree.<br>
+            <br>
+            Consider a generic polynomial: $f(x) = a_nx^n + \ldots + a_1x + a_0$. Then the following properties hold:<br>
+            <br> 
+            <ol>
+                <li>If $f$ is even degree and $a_n \gt 0$, then $f(x) \rightarrow \infty$ as $x \rightarrow \infty$ and $f(x) \rightarrow \infty$ as $x \rightarrow -\infty$</li>
+                <li>If $f$ is even degree and $a_n \lt 0$, then $f(x) \rightarrow -\infty$ as $x \rightarrow \infty$ and $f(x) \rightarrow -\infty$ as $x \rightarrow -\infty$</li>
+                <li>If $f$ is odd degree and $a_n \gt 0$, then $f(x) \rightarrow \infty$ as $x \rightarrow \infty$ and $f(x) \rightarrow -\infty$ as $x \rightarrow -\infty$</li>
+                <li>If $f$ is odd degree and $a_n \lt 0$, then $f(x) \rightarrow -\infty$ as $x \rightarrow \infty$ and $f(x) \rightarrow \infty$ as $x \rightarrow -\infty$</li>
+            </ol>
+            </table>
+
+            <div class="example">
+                Which are false for the polynomial, $f(x)=-(x-1)(x+6)^4$?
+                <ol>
+                    <li>$f$ has a local min at $x=-6$.</li>
+                    <li>The $y$-intercept is 1296.</li>
+                    <li>$f$ behaves like $y=-x^5$ for large $|x|$.</li>
+                    <li>$f$ has 5 $x$-intercepts.</li>
+                    <li>$f$ has degree 5.</li>
+                </ol>
+
+                <div class="solution">
+                    <ol>
+                        <li>True</li>
+                        <li>True</li>
+                        <li>True</li>
+                        <li>False</li>
+                        <li>True</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

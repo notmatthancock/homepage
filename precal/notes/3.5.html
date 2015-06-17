@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+    <head>
+        <title>3.5 &mdash; Complex Numbers</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/3.4.html">&laquo; 3.4</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/3.6.html">3.6 &raquo;</a></td></tr></table>
+
+            <h2>3.5 &mdash; Complex Numbers</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+
+            <h3>The Number $i$</h3>
+            $i$ is the imaginary unit defined to be the number such that $i^2 = -1$.
+            <h3>Complex Numbers</h3>
+            A complex number is a number with two parts: a <u>real</u> part and an <u>imaginary</u> part. Any complex number can be written as:
+            $$
+               z = a + bi \;\; \text{(standard form)}
+            $$
+            $a$ is the real part, and $b$ is the imaginary part.<br>
+            <br>
+            Note that any real number can be viewed as a complex number with zero imaginary part (e.g., $2 = 2 + 0\cdot i$). So, the real numbers are contained within the complex numbers (like how integers are contained within fractions).<br>
+            <br>
+            <div class="example">
+                Write the following in standard form ($a+bi$):
+                <ol>
+                    <li>$4i-(3+2i)+(1-3i)$</li>
+                    <li>$(5+6i)(2-i)$</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>$-2-i$</li>
+                        <li>$16+7i$</li>
+                    </ol>
+                </div>
+            </div>
+            <h3>The Complex Conjugate</h3>
+            The <u>complex conjugate</u> of a complex number, $z=a+bi$, is denoted:
+            $$
+                \bar{z} = a-bi
+            $$
+            A complex number multiplied by its complex conjugate is always purely real since:
+            \begin{align*}
+                z\bar{z} &= (a+bi)(a-bi) \\
+                &= a^2 - abi + abi - b^2 i^2 \\
+                &= a^2 + b^2 \\
+            \end{align*}
+            <div class="example">
+                Write the following in standard form ($a+bi$)
+                <ol>
+                    <li>$(3+4i)(3-4i)$</li>
+                    <li>$\frac{1-i}{1+4i}$</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>$25$</li>
+                        <li>$\frac{-3-5i}{17}$</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h3>Powers of $i$</h3>
+            We know that: $i^0 = 1$, $i^1 = i$, and $i^2 = -1$. We can use this information for higher powers.
+
+            <div class="example">
+                <ol>
+                    <li>$i^3 = \;?$</li>
+                    <li>$i^4 = \;?$</li>
+                    <li>$i^5 = \;?$</li>
+                    <li>$i^{25} = \;?$</li>
+                    <li>$i^{1003} = \;?$</li>
+                </ol>
+                <div class="solution">
+                    <ol>
+                        <li>$-i$</li>
+                        <li>$1$</li>
+                        <li>$i$</li>
+                        <li>$i$</li>
+                        <li>$-i$</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="example">
+                Write $i^{18} - 3i^{13}$ in standard form ($a+bi$).
+                <div class="solution">
+                    $-1 - 3i$
+                </div>
+            </div>
+
+            <div class="example">
+                Find <u>all</u> the roots of the function, $f(x) = x^2-4x+5$.
+                <div class="solution">
+                    $x = 2-i, 2+i$
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

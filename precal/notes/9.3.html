@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9.3 &mdash; The Ellipse</title> 
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../precal/css/main.css" type="text/css">
+        <script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+			  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			  processEscapes: true
+			},
+			TeX: {
+				extensions: ["AMSmath.js", "AMSsymbols.js"],
+				equationNumbers: { autoNumber: "AMS" }
+			},
+			"HTML-CSS": { availableFonts: ["TeX"] }
+		  });
+		</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script src="../../js/jquery-2.1.1.min.js"></script>
+        <script src="../../js/main.js"></script>
+        <script src="../../precal/js/main.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <table id="nav"><tr><td><a href="../../precal/notes/9.2.html">&laquo; 9.2</a></td><td style="text-align: center;"><a href="../../precal/">up</a></td><td><a href="../../precal/notes/9.4.html">9.4 &raquo;</a></td></tr></table>
+
+            <h2>9.3 &mdash; The Ellipse</h2>
+            <noscript style="color: red;">You need to have Javascript enabled to view these notes.</noscript>
+
+            <div class="img-wrap"><img class="darkbox" style="width: 60%" src="../../precal/img/9.3.1.jpg"></div><br>
+
+            <br>
+
+            An <u>ellipse</u> is the intersection of a plane and a conic as shown above. In the x-y plane, it is defined as the set of all points whose distances from two fixed points called the <u>foci</u> sums to a constant value.<br>
+
+            <br>
+
+            <div class="img-wrap"><a href="../../precal/img/ellipse-animated.gif" target="_blank"><img class="darkbox" style="width: 60%" src="../../precal/img/9.3.2.png"></a></div><br>
+
+            <h3>Equations and Such</h3>
+            We will focus on ellipses whose major axis is parallel to either the x or y axis only. In either case, the equation of an ellipse is given by:
+            $$
+                \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1
+            $$
+
+            <table class="basic">
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Case 1: $a^2 \gt b^2$</li>
+                            <li>Major axis is parallel to x-axis</li>
+                            <li>Center: $(h,k)$</li>
+                            <li>Vertices: $(h\pm a,k)$</li>
+                            <li>Covertices: $(h,k\pm b)$</li>
+                            <li>$c = \sqrt{a^2 - b^2}$</li>
+                            <li>Foci: $(h \pm c, k)$</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Case 2: $a^2 \lt b^2$</li>
+                            <li>Major axis is parallel to y-axis</li>
+                            <li>Center: $(h,k)$</li>
+                            <li>Vertices: $(h,k\pm b)$</li>
+                            <li>Covertices: $(h\pm a,k)$</li>
+                            <li>$c = \sqrt{b^2 - a^2}$</li>
+                            <li>Foci: $(h, k \pm c)$</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+
+            <div class="example">
+                Find the equation for the conic section plotted below:<br>
+                <br>
+                <div class="img-wrap"><img class="darkbox" src="../../precal/img/9.3.3.png"></div>
+                <div class="solution">
+                    $\displaystyle x^2 + \frac{y^2}{4} = 1
+                </div>
+            </div>
+
+            <div class="example">
+                Determine the equation of an ellipse with center $(0,0)$, focus at $(2,0)$, and vertex at $(-5,0)$.
+                <div class="solution">
+                    $\displaystyle \frac{x^2}{25} + \frac{y^2}{21} = 1$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the vertices of the ellipse given by $\displaystyle \frac{(x+7)^2}{3} + \frac{(y+3)^2}{4} = 1$.
+                <div class="solution">
+                    $(-7, -3 \pm 2)$
+                </div>
+            </div>
+
+            <div class="example">
+                Determine the equation of an ellipse with center at $(0,0)$, focus at $(0,-8)$, and vertex $(0,10)$. Solve for $y^2$.
+                <div class="solution">
+                    $\displaystyle y^2 = 100(1-\frac{x^2}{36})$
+                </div>
+            </div>
+
+            <div class="example">
+                Find the foci for an ellipse given by $\displaystyle \frac{(x-5)^2}{8} + \frac{(y+4)^2}{9} = 1$.
+                <div class="solution">
+                    $(5,-4\pm 1)$
+                </div>
+            </div>
+
+            <div class="example">
+                Plot the graph of $\displaystyle \frac{(x-3)^2}{9} + \frac{(y+2)^2}{4} = 1$.
+                <div class="solution">
+                </div>
+            </div>
+
+            <div class="example">
+                Find the equation of the following conic:<br>
+                <br>
+                <div class="img-wrap"><img class="darkbox" src="../../precal/img/9.3.4.png"></div>
+
+                <div class="solution">
+                    $\displaystyle \frac{(x-2)^2}{4} + \frac{(y-4)^2}{16} = 1$
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
