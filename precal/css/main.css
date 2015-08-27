@@ -6,8 +6,10 @@ table#calendar-headers {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
-    background: #707070;
-    color: #fff;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /*background: #707070;
+    color: #fff;*/
     font-size: 0.9em;
     padding: 5px 0 5px 0;
 }
@@ -16,12 +18,12 @@ div#calendar {
     height: 150px;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #353535;
+    background: #ddd;
 }
 div#calendar table { width: 100%; border-collapse: collapse; }
 div#calendar table tr td:first-child { width: 15%; }
 div#calendar table tr td:nth-child(2) { width: 25%; }
-div#calendar table tr:nth-child(even) { background: #606060; }
+div#calendar table tr:nth-child(even) { background: #808080; }
 div#calendar table tr td {
     text-align: center;
     padding: 8px 0 8px 0;
@@ -29,16 +31,11 @@ div#calendar table tr td {
 }
 
 ul#notes { margin-bottom: 0; padding: 0; list-style: none; }
-ul#notes li { padding: 2px 0px 2px 0; background: #333; margin: 0; }
-ul#notes li span { display: block; padding-left: 2px; }
-ul#notes li span:hover { color: #EAEA85; cursor: pointer; background: #292929; }
-ul#notes table { width: 100%; border-collapse: collapse; display: none; font-size: 0.9em; }
-ul#notes table tr:nth-child(even) { background: #606060; }
-ul#notes table tr:nth-child(odd) { background: #353535; }
-ul#notes table th { background: #707070; border-bottom: 3px solid #404040; color: #fff; }
-ul#notes table th { text-align: center }
+ul#notes li { padding: 2px 0px 2px 0; margin: 0; border-top: 1px solid black; border-bottom: 1px solid black; }
+ul#notes li span a { display: block; padding-left: 2px; }
+ul#notes table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+ul#notes table th { background: #fff; border-bottom: 3px solid #404040; border-top: 1px solid black; }
 ul#notes table td:first-child { text-align: center; width: 20%; }
-ul#notes table tr:not(:first-child):hover { background: #222; cursor: pointer; color: #EAEA85; }
 
 table#nav { width: 100%; font-size: 0.9em; }
 table#nav td:first-child { text-align: left; }
@@ -52,7 +49,7 @@ div.img-wrap img { width: 40%; }
 
 a.solution { float: right; }
 a.solution:hover { cursor: pointer; }
-div.solution { display: none; background: #545454; padding: 15px; margin: 20px 0 0 0; }
+div.solution { display: none; border: 1px solid #545454; padding: 15px; margin: 20px 0 0 0; }
 div.example { font-style: italic; font-size: 0.9em; padding-bottom: 100px; }
 div.example ol li { margin: 5px 0 5px 0; }
 
