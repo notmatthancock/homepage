@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Functional Iterator Painter</title>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <style>body { font-family: sans-serif }</style>
+    </head>
+
+    <body>
+
+        <div class="section-header">Functional Iterator Painter</div>
+        <div>
+        <table style="margin: 0 auto;" id="frac-table">
+            <tr>
+                <td>(<input type="text" style="width:20px" class="xMin">,<input type="text" style="width:20px" class="yMax">)</td>
+                <td><!--blank--></td>
+                <td>(<input type="text" style="width:20px" class="xMax">,<input type="text" style="width:20px" class="yMax">)</td>
+            </tr>
+            <tr>
+                <td><!--blank--></td>
+                <td>
+                    <canvas id="js-frac" width="600" height="600"></canvas>
+                </td>
+                <td><!--blank--></td>
+            <tr>
+                <td>(<input type="text" style="width:20px" class="xMin">,<input type="text" style="width:20px" class="yMin">)</td>
+                <td>
+                    <button onclick="window.open( $('#js-frac')[0].toDataURL(), '_blank' )">Save</button>
+                    <button onclick="color( generate_rand_color_scheme(frac.con_limit), points )">ReColor</button>
+                    <span style="border: 1px solid #404040; border-radius: 3px; padding: 3px; float: right; background: #aaa;">
+                        <button onclick="worker.terminate(); makeWorker();">Stop Draw</button>
+                        <button onclick="update_frac(); if (!stop) worker.postMessage(JSON.stringify(frac))">ReDraw</button>
+                        <span id="frac-loading"></span>
+                    </span>
+                </td>
+                <td>(<input type="text" style="width:20px" class="xMax">,<input type="text" style="width:20px" class="yMin">)</td>
+            </tr>
+            <tr>
+                <td><!--blank--></td>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td><a href="javascript:;" onclick="alert('Use javascript syntax for g(x,y) and h(x,y). Javascript math functions are permissible. More info on these here: http://www.w3schools.com/jsref/jsref_obj_math.asp')">Function:</a></td>
+                            <td><!--blank--></td>
+                        </tr>
+                        <tr>
+                            <td>x &larr; g(x,y) =</td>
+                            <td><input style="width: 100%" id="g_func"></td>
+                        </tr>
+                        <tr>
+                            <td>y &larr; h(x,y) =</td>
+                            <td><input style="width: 100%" id="h_func"></td>
+                        </tr>
+                        <tr>
+                            <td>Convergence Limit:</td>
+                            <td><input id="convergence_limit" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                        </tr>
+                        <tr>
+                            <td>Divergence Limit:</td>
+                            <td><input id="divergence_limit" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                        </tr>
+                        <tr>
+                            <td>Canvas Width:</td>
+                            <td><input id="canvas_width" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                        </tr>
+                        <tr>
+                            <td>Canvas Height:</td>
+                            <td><input id="canvas_height" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                        </tr>
+                    </table>
+                    
+                </td>
+                <td><!--blank--></td>
+            </tr>
+        </table>
+        </div>
+        <br>
+        <br>
+
+        Try these function pairs:
+        <style>ol#funcs li { padding-top: 10px; }ol#funcs li input { width: 220px;  }</style>
+        <ol id="funcs">
+            <li>
+              g = <input type="text" value="Math.exp(x)*Math.cos(y)"><br>
+              h = <input type="text" value="Math.exp(x)*Math.sin(y)">
+            </li>
+            <li>
+                g = <input type="text" value="x*x + y*y"><br>
+                h = <input type="text" value="0.76*Math.cos(4*x*y - Math.sin(y))">
+            </li>
+            <li>
+                g = <input type="text" value="20*Math.cos(4*y*y)*Math.sin(3*x*x*x)"><br>
+                h = <input type="text" value="x*x*y*y*y + 0.3">
+            </li>
+            <li>
+                g = <input type="text" value="(0.1*Math.sqrt( Math.tan(y*y)*Math.sin(x*x) ) + 1.4"><br>
+                h = <input type="text" value="(x*x*y + 9)/(y-1.9)">
+            </li>
+            <li>
+                g = <input type="text" value="x*x - y*y + 0.39"><br>
+                h = <input type="text" value="Math.asin( x*y ) + 0.13">
+            </li>
+            <li>
+                g = <input type="text" value="(x*x - y*y) % y"><br>
+                h = <input type="text" value="x*y % 3">
+            </li>
+        </ol>
+
+        Some other tips:<br>
+        <ol>
+            <li>Change the limits of canvas by changing the boundary points located at the corners of the canvas. These represent the corner points of a 
+            rectangle in the x-y plane.</li>
+            <li>There is a one-to-one correspondence between pixels (canvas width and height), and points (in the plane) tested. This means that if you keep
+            the bounds constant, increasing the size of the canvas will increase the resolution. If you make a large one, keep an eye on the percentage meter
+            to guage the length of time til completion.</li>
+            <li>Recoloring requires no further computation (as intensive as testing points, that is).</li>
+            <li>If the image is small, yet the completion percentage is crawling, this means the most of the points are converging and the image will most
+            likely be a boring solid color.</li>
+            <li>Small tweaks may have surprisingly large effects on the previous behavior.</li>
+            <li>If you like an image, press the save button!</li> 
+        </ol>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
