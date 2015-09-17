@@ -1,6 +1,6 @@
 body {
     font: 18px sans-serif;
-    padding: 100px;
+    padding: 50px;
 }
 table { font-size: 18px; }
 
@@ -11,6 +11,3 @@ div#main {
 
 a, a:visited { color: #282ffc; }
 a:hover { background-color: #ffff93; }
-
-img#me { padding-right: 50px; }
-
