@@ -60,8 +60,8 @@ c = document.getElementById('js-frac').getContext('2d');
 
 frac = {
 	f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] + 0.285, 2* x[0]*x[1] + 0.01 ] }  )",
-	con_limit: 200,
-	div_limit: 1e3,
+	con_limit: 100,
+	div_limit: 100,
 	
 	width: document.getElementById('js-frac').width,
 	height: document.getElementById('js-frac').height,
