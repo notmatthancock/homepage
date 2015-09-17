@@ -16,7 +16,7 @@ color = function( colors, points ) {
 }
 
 var g_func = "x*x - y*y + 0.285";
-var h_func = "2*x*y + 0.0097";
+var h_func = "2*x*y - 0.55";
 
 var stop = false; 
 update_frac = function() {
@@ -59,7 +59,7 @@ var points = "points";
 c = document.getElementById('js-frac').getContext('2d');
 
 frac = {
-	f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] + 0.285, 2* x[0]*x[1] + 0.0097 ] }  )",
+	f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] + 0.285, 2* x[0]*x[1] - 0.55  ] }  )",
 	con_limit: 100,
 	div_limit: 100,
 	
