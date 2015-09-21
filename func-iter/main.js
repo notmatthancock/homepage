@@ -3,6 +3,9 @@ $(function() {
     var h_func = "2*x*y + 0.6557";
 
     canvas  = $('#js-frac')[0]
+    s = 0; $('body > :not(#js-frac)').each(function() { s+=$(this).outerHeight(true); })
+    canvas.width  = $(window).height() - s + 80
+    canvas.height = $(window).height() - s + 80 
     context = canvas.getContext('2d');
 
     // fractal container object
