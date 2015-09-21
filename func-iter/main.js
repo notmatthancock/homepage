@@ -1,15 +1,15 @@
 $(function() {
-    var g_func = "x*x - y*y + 0.285";
-    var h_func = "2*x*y - 0.55";
+    var g_func = "x*x - y*y - 0.11";
+    var h_func = "2*x*y + 0.6557";
 
     canvas  = $('#js-frac')[0]
     context = canvas.getContext('2d');
 
     // fractal container object
     frac = {
-        f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] + 0.285, 2* x[0]*x[1] - 0.55  ] }  )",
-        con_limit: 100,
-        div_limit: 100,
+        f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] - 0.11, 2* x[0]*x[1] + 0.6557  ] }  )",
+        con_limit: 200,
+        div_limit: 10,
         
         width:  canvas.width,
         height: canvas.height,
