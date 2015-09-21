@@ -1,7 +1,6 @@
 <html>
     <head>
         <title>Functional Iterator Painter</title>
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <style>body { font-family: sans-serif }</style>
     </head>
 
@@ -17,19 +16,19 @@
             </tr>
             <tr>
                 <td><!--blank--></td>
-                <td>
-                    <canvas id="js-frac" width="600" height="600"></canvas>
+                <td><!--style="width: 600px; height: 600px;"-->
+                    <canvas id="js-frac" width="600" height="600" style="border: 3px solid #000; border-radius: 3px;"></canvas>
                 </td>
                 <td><!--blank--></td>
             <tr>
                 <td>(<input type="text" style="width:20px" class="xMin">,<input type="text" style="width:20px" class="yMin">)</td>
                 <td>
                     <button onclick="window.open( $('#js-frac')[0].toDataURL(), '_blank' )">Save</button>
-                    <button onclick="color( generate_rand_color_scheme(frac.con_limit), points )">ReColor</button>
+                    <button id="recolor">ReColor</button>
                     <span style="border: 1px solid #404040; border-radius: 3px; padding: 3px; float: right; background: #aaa;">
-                        <button onclick="worker.terminate(); makeWorker();">Stop Draw</button>
-                        <button onclick="update_frac(); if (!stop) worker.postMessage(JSON.stringify(frac))">ReDraw</button>
                         <span id="frac-loading"></span>
+                        <button id="draw" style="display: none;">ReDraw</button>
+                        <button id="stop">Stop</button>
                     </span>
                 </td>
                 <td>(<input type="text" style="width:20px" class="xMax">,<input type="text" style="width:20px" class="yMin">)</td>
@@ -52,19 +51,19 @@
                         </tr>
                         <tr>
                             <td>Convergence Limit:</td>
-                            <td><input id="convergence_limit" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                            <td><input id="convergence_limit" class="integer-input"></td>
                         </tr>
                         <tr>
                             <td>Divergence Limit:</td>
-                            <td><input id="divergence_limit" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                            <td><input id="divergence_limit" class="integer-input"></td>
                         </tr>
                         <tr>
                             <td>Canvas Width:</td>
-                            <td><input id="canvas_width" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                            <td><input id="canvas_width" class="integer-input"></td>
                         </tr>
                         <tr>
                             <td>Canvas Height:</td>
-                            <td><input id="canvas_height" onchange="if (isNaN($(this).val())) $(this).val('Enter a number.'); else $(this).val( Math.round($(this).val()) )"></td>
+                            <td><input id="canvas_height" class="integer-input"></td>
                         </tr>
                     </table>
                     
@@ -73,6 +72,7 @@
             </tr>
         </table>
         </div>
+        <!--
         <br>
         <br>
 
@@ -118,7 +118,9 @@
             <li>Small tweaks may have surprisingly large effects on the previous behavior.</li>
             <li>If you like an image, press the save button!</li> 
         </ol>
+        -->
 
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="./main.js"></script>
     </body>
 </html>
