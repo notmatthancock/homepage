@@ -2,6 +2,7 @@ hsv_to_rgb = function(h,s,v) {
     var c  = s*v;
     var hp = h / 60.0;
     var x  = c*(1-Math.abs((hp % 2) - 1));
+
     if ( hp >= 0 && hp < 1 )
         var tmp = [c,x,0];
     else if ( hp >= 1 && hp < 2 )
@@ -12,7 +13,7 @@ hsv_to_rgb = function(h,s,v) {
         var tmp = [0,x,c];
     else if ( hp >= 4 && hp < 5 )
         var tmp = [x,0,c];
-    else if ( hp >= 5 && hp < 6 )
+    else if ( hp >= 5 && hp <= 6 )
         var tmp = [c,0,x];
 
     var m = v-c;
