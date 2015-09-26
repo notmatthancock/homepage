@@ -10,7 +10,7 @@ $(function() {
 
     // fractal container object
     frac = {
-        f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] - 0.11, 2* x[0]*x[1] + 0.6557  ] }  )",
+        f: "( function(x) { return [x[0]*x[0]-x[1]*x[1] - 0.11, 2* x[0]*x[1] + 0.6557 ] } )",
         con_limit: 200,
         div_limit: 10,
         
@@ -24,6 +24,8 @@ $(function() {
         yMin: -1.0,
         yMax: 1.0,
         yStep: 2.0 / (canvas.height-1),
+
+        hues: [0, 204, 62],
 
         // This array stores the number of iterations a point
         // 'survives' the functional iteration.
@@ -78,6 +80,30 @@ $(function() {
     $('#divergence_limit').val( frac.div_limit );
     $('#canvas_width').val( frac.width );
     $('#canvas_height').val( frac.height );
+    // set palette box colors
+    for(var j=1; j<=3; j+=1) {
+        $('.color-palette[which='+String(j)+']').css('background-color', 'hsl('+frac.hues[j-1]+',100%,50%)');
+        var changer = '<div class="hue-changer" which="'+j+'"><input type="range" min="0" max="360" step="1"';
+        changer += ' value="'+frac.hues[j-1]+'"></div>';
+        $('body').append( changer )
+    }
+
+    $('body').on('click', '.color-palette', function() {
+        var w = $(this).attr('which');
+        var t = $(this).position().top - 30;
+        var l = $(this).position().left - 150 - 5;
+        $('.hue-changer[which='+w+']').css({left: l, top: t}).show();
+        $('.hue-changer[which='+w+'] > input').focus()
+    });
+
+    $('body').on('input change', '.hue-changer > input', function() {
+        $('.color-palette[which='+$(this).parent().attr('which')+']').css('background-color', 'hsl('+parseInt($(this).val())+',100%,50%)');
+        frac.hues[ $(this).parent().attr('which')-1 ] = parseInt($(this).val())
+    });
+
+    $('body').on('focusout', '.hue-changer > input', function(e) {
+        $(this).parent().hide()
+    });
 	
     // Error checking for integer inputs.
     $('body').on('change', '.integer-input', function() {
