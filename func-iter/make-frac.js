@@ -1,3 +1,4 @@
+// Conversion code can be found on wikipedia
 hsv_to_rgb = function(h,s,v) {
     var c  = s*v;
     var hp = h / 60.0;
@@ -80,6 +81,7 @@ self.onmessage = function(msg) {
             for (var l=0; l<3; l+=1)
                  // we have to offset by 1 because every point survices at least one iteration
                 img_data[4*ip+l] = colors[frac.points[ip]-1][l];
+            // this is the alpha value for rgba
             img_data[4*ip+3] = 255
         }
         if ( !frac.color_only ) self.postMessage({topic: 'testing', iter: i});
