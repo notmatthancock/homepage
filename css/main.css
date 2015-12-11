@@ -1,14 +1,15 @@
 body {
     font-size: 18px;
     font-family: "Lucida Grande", Helvetica, sans-serif;
-    padding: 50px;
+    padding: 0 50px 50px 50px;
 }
 table { font-size: 18px; }
+table#contact td:first-child { font-weight: bold; padding-right: 15px; }
 
 div#main {
     margin: 0 auto;
     width: 75%;
 }
 
-a, a:visited { color: #282ffc; }
-a:hover { background-color: #ffff93; }
+a,a:visited { color: #dc143c; } /* crimson */
+a:hover { background-color: #ffe566; } /* gold */

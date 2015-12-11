@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>Matt Hancock</title>
-        <script src="js/main.js"></script>
         <link rel="stylesheet" href="css/main.css" type="text/css" media="screen"/>
     </head>
     <body>
@@ -20,7 +19,7 @@
             Hello. I am a PhD candidate in <a href="http://www.math.fsu.edu/acmath/">Applied and Computational Mathematics</a> at <a href="http://www.fsu.edu">Florida State University</a>. Find more information below, or <a href="http://notmatthancock.github.io">visit my blog</a> for more current ramblings.
 
             <h2>Contact</h2>
-            <table>
+            <table id="contact">
                 <tr>
                     <td>Office:</td>
                     <td>MCH 409B</td>
@@ -31,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><a href="javascript:;" id="email" onclick="return get_email();">Click here.</a></td>
+                    <td><a href="javascript: ee = document.getElementById('email'); es=[109, 104, 97, 110, 99, 111, 99, 107, 64, 109, 97, 116, 104, 46, 102, 115, 117, 46, 101, 100, 117].map( function(n) { return String.fromCharCode(n) } ).join(''); ee.innerHTML=es; ee.setAttribute('href','mailto:'+es);" id="email">Click here</a></td>
                 </tr>
             </table>
             </td>
@@ -44,7 +43,8 @@
 
             <h2>Teaching</h2>
             <ul>
-                <li><a href="precal">Precalculus Algebra (Spring 2015)</a></li>
+                <li><a href="#">Calculus 1 (Spring 2016)</a></li-->
+                <li>Precalculus Algebra (Spring 2015)</li>
                 <li>Precalculus Algebra (Fall 2014)</li>
             </ul>
         </div>
