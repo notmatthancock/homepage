@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "restricted"
+AuthUserFile /Users/macuser/Sites/homepage/calc1/notes/.htpasswd
+require valid-user
