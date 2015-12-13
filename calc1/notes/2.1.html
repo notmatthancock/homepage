@@ -17,4 +17,71 @@
         <table style="width:100%"><tr><td><a id="prev"></a></td>
                 <td style="text-align: center;"><a href="../notes/">up</a></td>
                 <td style="text-align: right;"><a href="2.2.html" id="next">next</a></td>
-            </tr></table><h1>2.1 - The tangent and velocity problems</h1></body></html>
+            </tr></table><h1>2.1 - The tangent and velocity problems</h1>
+
+    <h2>The secant line</h2>
+
+    <u>Definition</u>: Given a curve, $f$, and two points on the graph of this curve, $(x_1,f(x_1))$ and $(x_2,f(x_2))$, the secant is the straight line through these points.
+
+    <br><br>
+
+    <u>Remark</u>: the slope of the secant is found using the slope formula, $m = \frac{f(x_2)-f(x_1)}{x_2-x_1}$. The equation for the secant is found using the point-slope equation for a line: $y-f(x_1) = m (x-x_1)$
+
+    <br><br>
+
+    <h3>Example</h3>
+    Let $f(x)=x^2$. Find the slope of the secant between when $x_1=1$, and when $x_2=-0.9, -0.99, 1.1, 1.01$. What is the slope of the tangent line when $x=1+h$? What happens when $h \to 0$?
+
+    <br><br><br>
+
+    The <u>tangent line</u> of a curve at a point, $(x,f(x))$ is said to "just touch" the curve at that point. Does the previous example suggest a way to give slope of this line by some limiting process? The slope of the tangent line at a point is defined to be the limit of the slopes of the secant line approximations around the tangenet line point.
+
+    <h2>Velocity</h2>
+
+    Suppose the position of a moving particle at a time, $t$, is given by the curve, $f(t$). Given two points in time, $t_1$ and $t_2$, the <u>average velocity</u>, over this is interval in time is given by:
+
+    $$
+        \text{average velocity} = \frac{\text{change in position}}{\text{change in time}} = \frac{f(t_2) - f(t_1)}{t_2 - t_1}
+    $$
+
+    <br><br>
+
+    <h3>Example</h3>
+    Suppose a ball is thrown into the air, and its height over time is given by $f(t) = 1+ 3t - t^2$. What is its average velocity from $t_1=0$ to $t_2=1$? $t_2=0.1$? $t_2=h$? What happens when $h \to 0$?
+
+    <br><br>
+
+    The <u>instantaneous velocity</u> at a time, $t$, is defined as the limit of average velocity about the time, $t$, as the size of the interval of time defining the average goes to zero.
+
+    <br><br>
+
+    In the last example what is instantaneous velocity when the ball is first thrown (i.e., when $t=0$)?
+
+    <br><br>
+
+    <h3>Example</h3>
+
+    The following table shows a skateboarder's position at various times:
+
+    <br><br>
+
+    <style>
+        table#ex { border-collapse: collapse; }
+        table#ex, table#ex td { border: 1px solid gray; padding: 10px; }
+    </style>
+    <table id="ex">
+        <tr>
+            <td>t (seconds)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+        </tr>
+        <tr>
+            <td>m (meters)</td><td>2.7</td><td>3.4</td><td>3.8</td><td>8.6</td><td>10.1</td>
+        </tr>
+    </table>
+
+    <ul>
+        <li>What is the avg vel on interval, $[0,2]$?</li>
+        <li>What is the avg vel on interval, $[1,4]$?</li>
+        <li>What is the avg vel on interval, $[3,4]$?</li>
+    </ul>
+
+</body></html>
