@@ -11,7 +11,7 @@ def random_piecewise_plot(
     """
     Generate a random piecewise plot on the interval: [0,n_segments].
 
-    The plot will be continuous across the n_continuous intervals, meaning n_continous interval partition points will be chosen at random, and the function will be continuous across the adjoining intervals.
+    The plot will be continuous across the n_continuous intervals, meaning n_continuous interval partition points will be chosen at random, and the function will be continuous across the adjoining intervals.
 
     If degrees is None, the degree of the spline on each interval is of random degree between 1 and max_degree. Otherwise, degrees should be a list specifying the degree on each interval.
 
@@ -22,7 +22,7 @@ def random_piecewise_plot(
         assert len(degrees) == n_segments
     assert n_jump_holes <= n_segments
 
-    N = 400 # resample resolution on each interval
+    N = 100 # resample resolution on each interval
     x = linspace(0,n_segments,n_segments*N)
     y = zeros_like(x)
 
@@ -33,7 +33,10 @@ def random_piecewise_plot(
     # Create the knots.
     for i in range(n_segments):
         xi = linspace(i,i+1,degrees[i]+1)
-        yi = randn(xi.shape[0])
+        yi = zeros_like(xi)
+        yi[[0,-1]] = randint(-6,7,size=2) / 2.0
+        if xi.shape[0] > 2:
+            yi[1:-1] = randn(xi.shape[0]-2)
         knots.append((xi,yi))
 
     # Tie knots, and evaluate function points via spline to create y array.
@@ -41,29 +44,35 @@ def random_piecewise_plot(
         if i in continuous_points:
             knots[i][1][-1] = knots[i+1][1][0] # tie the knot
         elif i != n_segments-1:
-            s = (1+rand()) if rand() < 0.5 else (-1-rand())
+            s = 0.5 if rand() < 0.5 else -0.5
+            s *= randint(1,4)
             knots[i][1][-1] = knots[i+1][1][0] + s
         y[i*N:(i+1)*N] = spline(knots[i][0],knots[i][1],x[i*N:(i+1)*N],order=degrees[i])
 
     # Determine connected segments.
     segments = [[i,i+1] for i in range(n_segments)]
-    
+    pop_list = []
+
+    # By collecting connected segments, we can plot according to these
+    # segments, so that the graph appears continuous visually across segments.
     for j in range(n_segments):
         check_c_pts = True
         for s in segments[:j]:
-            if s[1] <= segments[j][1]:
-                segments.pop(j)
+            if s[1] >= segments[j][1]:
+                pop_list.append(j)
                 check_c_pts = False
                 break
         if check_c_pts and j in continuous_points:
             segments[j][1] += 1
             k = j+1; i = where(continuous_points==j)[0][0]+1
-            while k==i:
+            while i < len(continuous_points) and k==continuous_points[i]:
                 segments[j][1] += 1
+                i += 1
+                k += 1
+    segments = [s for j,s in enumerate(segments) if j not in pop_list]
             
-
-    #for s in segments:
-    #    plot(x[s[0]*N:s[1]*N], y[s[0]*N:s[1]*N],'-k')
+    for s in segments:
+        plot(x[s[0]*N:s[1]*N], y[s[0]*N:s[1]*N],)
 
     # Draw open / closed interval markers.
     for i in range(n_segments-1):
@@ -77,18 +86,26 @@ def random_piecewise_plot(
 
     # Draw jump holes
     for i in np.random.choice(range(n_segments),size=n_jump_holes,replace=False):
-        jx = i+0.5; jy = y[i*N+N/2]; r = randn(); jy+=r
-        jy += 0.5 if r > 0 else -0.5
+        jx = i+0.5; jy = y[i*N+N/2].round(); 
+        r = 0.5*(randint(1,4))
+        jy += -r if rand() < 0.5 else r
         plot(jx, jy, 'o', ms=10, markeredgecolor='k', markerfacecolor='k')
         plot(jx, y[i*N+N/2], 'o', ms=10, markeredgecolor='k', markerfacecolor='w')
         y[i*N+N/2] = jy
 
-    dx = (x.max()-x.min()) / 16.
-    xlim(x.min()-dx,x.max()+dx)
-    dy = (y.max()-y.min()) / 16.
-    ylim(y.min()-dy,y.max()+dy)
+    xlim(-0.5,n_segments+0.5)
+    xticks(arange(0,n_segments+0.5,0.5))
+
+    ymin = y.min().round()-0.5
+    ymax = y.max().round()+0.5
+
+    ylim(y.min()-0.5,y.max()+0.5)
+    yticks(arange(ymin,ymax+0.5,0.5))
     xlabel('$x$',fontsize=20); ylabel('$f(x)$',fontsize=20)
     tight_layout()
     show()
 
-random_piecewise_plot(n_segments=3)
+random_piecewise_plot(n_segments=4,n_continuous=2)
+random_piecewise_plot(n_segments=4,n_continuous=2)
+random_piecewise_plot(n_segments=4,n_continuous=2)
+random_piecewise_plot(n_segments=4,n_continuous=2)

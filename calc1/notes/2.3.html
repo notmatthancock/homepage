@@ -1,4 +1,8 @@
-<html><head><link rel="stylesheet" href="../../css/main.css" type="text/css"><script type="text/x-mathjax-config">
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../css/notes.css" type="text/css">
+        <script type="text/x-mathjax-config">
           MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
             jax: ["input/TeX", "output/HTML-CSS"],
@@ -13,108 +17,102 @@
             },
             "HTML-CSS": { availableFonts: ["TeX"] }
           });
-        </script><script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script></head><body>
-        <table style="width:100%"><tr><td><a id="prev" href="2.2.html">prev</a></td>
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/notes.js"></script>
+    </head>
+    <body>
+        <table id="nav">
+            <tr>
+                <td><a id="prev" href="2.2.html">prev</a></td>
                 <td style="text-align: center;"><a href="../notes/">up</a></td>
                 <td style="text-align: right;"><a href="2.5.html" id="next">next</a></td>
-            </tr></table><h1>2.3 - Calculating limits using limit laws</h1></body>
+            </tr>
+        </table>
 
-    <style>
-        li { margin: 20px 0 20px 0; }
-    </style>
+        <h1>2.3 - Calculating limits using limit laws</h1>
 
+        Two special limits:
 
-    Two special limits:
+        <ol>
+            <li>$\displaystyle \lim_{x \to a} x = a$</li>
+            <li>For a constant $c$, $\displaystyle \lim_{x \to a} c = c$</li>
+        </ol>
 
-    <ol>
-        <li>$\displaystyle \lim_{x \to a} x = a$</li>
-        <li>For a constant $c$, $\displaystyle \lim_{x \to a} c = c$</li>
-    </ol>
+        <div class="theorem">
+            <b>(limit laws)</b><br>
+            <br>
+            Suppose
+            $$
+                \lim_{x \to a} f(x) \;\; \text{and} \;\; \lim_{x \to a} g(x)
+            $$
+            
+            both exist, then the following are true:
 
-    <br>
+            <ol>
+                <li>$\displaystyle \lim_{x \to a} \left[ f(x) + g(x) \right] = \lim_{x \to a}f(x) + \lim_{x \to a}g(x)$</li>
+                <li>$\displaystyle \lim_{x \to a} \left[ f(x) \cdot g(x) \right] = \lim_{x \to a}f(x) \cdot \lim_{x \to a}g(x)$</li>
+            </ol>
+        </div>
 
-    <b>Theorem 2.3.1 (limit laws)</b>
+        Corollaries to Theorem 2.3.1:
 
-    Suppose
-    $$
-        \lim_{x \to a} f(x) \;\; \text{and} \;\; \lim_{x \to a} g(x)
-    $$
-    
-    both exist, then the following are true:
+        <ol>
+            <li>If $\displaystyle \lim_{x \to a}g(x) \neq 0$, $\displaystyle \lim_{x \to a} \left[ \frac{f(x)}{g(x)} \right] = \frac{\lim_{x \to a}f(x)}{\lim_{x \to a}g(x)}$</li>
+            <li>Let $c$ be any constant and $g(x)=c$, then using Thm 2.3.1 Rule 2, $$\displaystyle \lim_{x \to a} \left[ cf(x) \right] = c\lim_{x \to a}f(x)$$</li>
+            <li>$$\begin{align*}\displaystyle \lim_{x \to a} \left[ f(x) - g(x) \right] &= \lim_{x \to a} \left[ f(x) + (-1)g(x) \right] \\ &= \lim_{x \to a} f(x) + \lim_{x \to a} \left[ (-1)g(x) \right] \tag{Thm 2.3.1 Rule 1} \\ &= \lim_{x \to a} f(x) - \lim_{x \to a} g(x)  \tag{Corollary 1} \end{align*}$$</li>
+            <li>Letting $g(x)=f(x)$, and repeatedly apply Thm 2.3.1 Rule 2, $$\lim_{x \to a} \left[ f(x)^n \right] = \left[ \lim_{x \to a} f(x) \right]^n$$</li>
+            <li>Using the previous corollary, $\lim_{x \to a} f(x) = \lim_{x \to a} \left[ (\sqrt[n]{f(x)})^n \right] = \left[ \lim_{x \to a} \sqrt[n]{f(x)} \right]^n$. Taking $n$th roots, we have: $$\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{ \lim_{x \to a} f(x) }$$</li>
+            <li>Letting $f(x)=x$, we have two special cases of the previous two corollaries, $$\lim_{x \to a} \left[ x^n \right] = a^n \;\; \text{and} \;\; \lim_{x \to a} \sqrt[n]{x} = \sqrt[n]{a}$$</li>
+        </ol>
 
-    <ol>
-        <li>$\displaystyle \lim_{x \to a} \left[ f(x) + g(x) \right] = \lim_{x \to a}f(x) + \lim_{x \to a}g(x)$</li>
-        <li>$\displaystyle \lim_{x \to a} \left[ f(x) \cdot g(x) \right] = \lim_{x \to a}f(x) \cdot \lim_{x \to a}g(x)$</li>
-        <li>If $\displaystyle \lim_{x \to a}g(x) \neq 0$, $\displaystyle \lim_{x \to a} \left[ \frac{f(x)}{g(x)} \right] = \frac{\lim_{x \to a}f(x)}{\lim_{x \to a}g(x)}$</li>
-    </ol>
+        <br>
 
-    <br><br>
+        <b>Note</b>: Theorem 2.3.1 and its corollaries hold for one-sided limits also.
 
-    Corollaries to Theorem 2.3.1:
+        <br><br>
 
-    <ol>
-        <li>Let $c$ be any constant and $g(x)=c$, then using Thm 2.3.1 Rule 2, $$\displaystyle \lim_{x \to a} \left[ cf(x) \right] = c\lim_{x \to a}f(x)$$</li>
-        <li>$$\begin{align*}\displaystyle \lim_{x \to a} \left[ f(x) - g(x) \right] &= \lim_{x \to a} \left[ f(x) + (-1)g(x) \right] \\ &= \lim_{x \to a} f(x) + \lim_{x \to a} \left[ (-1)g(x) \right] \tag{Thm 2.3.1 Rule 1} \\ &= \lim_{x \to a} f(x) - \lim_{x \to a} g(x)  \tag{Corollary 1} \end{align*}$$</li>
-        <li>Letting $g(x)=f(x)$, and repeatedly apply Thm 2.3.1 Rule 2, $$\lim_{x \to a} \left[ f(x)^n \right] = \left[ \lim_{x \to a} f(x) \right]^n$$</li>
-        <li>Using the previous corollary, $\lim_{x \to a} f(x) = \lim_{x \to a} \left[ (\sqrt[n]{f(x)})^n \right] = \left[ \lim_{x \to a} \sqrt[n]{f(x)} \right]^n$. Taking $n$th roots, we have: $$\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{ \lim_{x \to a} f(x) }$$</li>
-        <li>Letting $f(x)=x$, we have two special cases of the previous two corollaries, $$\lim_{x \to a} \left[ x^n \right] = a^n \;\; \text{and} \;\; \lim_{x \to a} \sqrt[n]{x} = \sqrt[n]{a}$$</li>
-    </ol>
+        <div class="example">
+            Find $$\lim_{x \to -2} \frac{x^3 + 2x^2 -1}{5-3x}$$ (ans = -1/11)
+        </div>
 
-    <b>Note</b>: Theorem 2.3.1 and its corollaries hold for one-sided limits also.
+        <div class="theorem">
+            <b>(direct substitution property)</b>
+            If $f$ is a polynomial or a rational function and $a$ is in the domain of $f$, then
+            $$
+                \lim_{x \to a} f(x) = f(a)
+            $$
+        </div>
+        
+        <u>Foreshadowing</u>: <b>continuous</b> functions are those which satisfy the direct substitution property
 
-    <br><br>
+        <div class="example">For a fixed $x$, find $$\lim_{h \to 0} \frac{(x+h)^2 - x^2}{h}$$</div>
 
-    <h3>Example</h3>
+        <div class="theorem">If $f(x)=g(x)$ when $x\neq a$, then $\lim_{x \to a} f(x) = \lim_{x \to a} g(x)$.</div>
 
-    Find (ans = -1/11) $$\lim_{x \to -2} \frac{x^3 + 2x^2 -1}{5-3x}$$ 
+        <div class="example">
+            Let $\displaystyle g(x) = \begin{cases} x+1 & \text{if} \; x \neq 1 \\ \pi & \text{if} \; x=1\end{cases}$. Find $\lim_{x \to 1} g(x)$. 
+        </div>
 
-    <br><br>
+        <div class="example">Find: $$\lim_{x \to 1} \frac{x^2-1}{x-1}$$ (ans=2)</div>
 
-    <b>Theorem 2.3.2 (direct substitution property)</b>
-    If $f$ is a polynomial or a rational function and $a$ is in the domain of $f$, then
-    $$
-        \lim_{x \to a} f(x) = f(a)
-    $$
+        <div class="example">Find $$\lim_{t \to 0} \frac{\sqrt{t^2+9} - 3}{t^2}$$</div>
 
-    <u>Foreshadowing</u>: <b>continuous</b> functions are those which satisfy the direct substitution property
+        <div class="example">
+            Find $\lim_{x \to 0} f(x)$ if $$f(x) = \begin{cases} \sqrt{x-4} & x \gt 4 \\ 8-2x & x \lt 4\end{cases}$$ (ans = 0)
+        </div>
 
-    <br><br>
+        <div class="theorem">
+            If $f(x) \leq g(x)$ near $a$ (except possibly at $x=a$), then $$\lim_{x \to a} f(x) \leq \lim_{x \to a} g(x)$$
+        </div>
 
-    <h3>Example</h3>
+        <div class="theorem">
+            <b>(the Squeeze theorem)</b> If $g(x) \leq f(x) \leq  h(x)$ near $a$ (except possibly at $x=a$) and $\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$, then $$\lim_{x \to a} f(x) = L$$
+        </div>
 
-    Find (ans=2): $$\lim_{x \to 1} \frac{x^2-1}{x-1}$$
-
-    <br><br>
-
-    <b>Theorem 2.3.3</b> If $f(x)=g(x)$ when $x\neq a$, then $\lim_{x \to a} f(x) \lim_{x \to a} g(x)$.
-
-    <br><br>
-
-    <h3>Example</h3>
-
-    Let $\displaystyle g(x) = \begin{cases} x+1 & \text{if} \; x \neq 1 \\ \pi & \text{if} \; x=1\end{cases}$. Find $\lim_{x \to 1} g(x)$. 
-
-    <br><br>
-
-    <h3>Example</h3>
-
-    For a fixed $x$, find $$\lim_{h \to 0} \frac{(x+h)^2 - x^2}{h}$$
-
-    <h3>Example</h3>
-
-    Find $$\lim_{t \to 0} \frac{\sqrt{t^2+9} - 3}{t^2}$$
-
-    <h3>Example</h3>
-
-    Find $$\lim_{x \to 0} |x|$$ .. use $\lim_{x\to0^+} |x| = \lim_{x\to0} x = 0$ and $\lim_{x\to0^-} |x| = \lim -x = 0$
-
-
-    <script>
-        var examples = document.getElementsByTagName('h3')
-        for(var i=0; i<examples.length; i+=1) {
-            if (examples[i].innerHTML == 'Example')
-                examples[i].innerHTML = 'Example ' + String(i)
-        }
-    </script>
-
+        <div class="example">
+            Find $\lim_{x \to 0} x^2 \sin(1/x)$. solution: use $-1 \leq \sin(1/x) \leq 1$ and multiply both sides by $x^2$. since $x^2 \to 0$, the function goes to 0.
+        </div>
+    </body>
 </html>

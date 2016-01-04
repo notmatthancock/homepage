@@ -8,5 +8,10 @@ $(function() {
 	// Enumerate examples.
 	$('.example').each(function(n) {
 		$(this).html( '<b><u>Example '+(n+1)+'</u></b>: ' + $(this).html() )
-	})	
+	})
+
+	// Enumerate theorems.
+	$('.theorem').each(function(n) {
+		$(this).html( '<b><u>Theorem '+(n+1)+'</u></b>: ' + $(this).html() )
+	})
 })
