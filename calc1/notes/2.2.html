@@ -1,4 +1,8 @@
-<html><head><link rel="stylesheet" href="../../css/main.css" type="text/css"><script type="text/x-mathjax-config">
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../css/notes.css" type="text/css">
+        <script type="text/x-mathjax-config">
           MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
             jax: ["input/TeX", "output/HTML-CSS"],
@@ -13,112 +17,107 @@
             },
             "HTML-CSS": { availableFonts: ["TeX"] }
           });
-        </script><script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script></head><body>
-        <table style="width:100%"><tr><td><a id="prev" href="2.1.html">prev</a></td>
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/notes.js"></script>
+    </head>
+    <body>
+        <table id="nav">
+            <tr>
+                <td><a id="prev" href="2.1.html">prev</a></td>
                 <td style="text-align: center;"><a href="../notes/">up</a></td>
                 <td style="text-align: right;"><a href="2.3.html" id="next">next</a></td>
-            </tr></table><h1>2.2 - The limit of a function</h1>
-    
-    <u>Fuzzy definition</u>: If $f(x)$ is close to $L$ whenever $x$ is sufficiently close to $a$, we say the limit as $x$ goes to $a$ of $f(x)$ is $L$. This is written as:
-    $$
-        \lim_{x \to a} f(x) = L
-    $$
+            </tr>
+        </table>
+        <h1>2.2 - The limit of a function</h1>
+        
+        <div class="definition">
+            If $f(x)$ is close to $L$ whenever $x$ is sufficiently close to $a$, we say the limit as $x$ goes to $a$ of $f(x)$ is $L$. This is written as:
+            $$
+                \lim_{x \to a} f(x) = L
+            $$
 
-    or
+            or
 
-    $$
-        f(x) \to L \; \text{as} \; x \to a
-    $$
+            $$
+                f(x) \to L \; \text{as} \; x \to a
+            $$
+        </div>
 
-    This definition is fuzzy because, we've not been precise about what we mean by "close" and "sufficiently close". Nonetheless, this definition will suffice for now.
+        <div class="example">
+            Let $f(x) = \frac{x-1}{x^2-1}$. Determine $\displaystyle \lim_{x \to 1} f(x)$ by calculating $f(x)$ at values close to $x=1$. <br> ans: (0.9,0.5263), (0.99,0.5025), (0.999,0.5003), (1.001,0.4998), (1.01,0.4975), (1.1,0.4762)
+        </div>
 
-    <br><br>
+        <div class="example">
+            Let $f(x) = \frac{\sin(x)}{x}$. Calculate the limit as $x \to 0$ by guessing values.<br> ans: (-0.1,0.99833), (-0.01,0.99998), (0.01,0.99998), (0.1,0.99833)
+        </div>
+        
+        <u>Moral</u>: $f(x)$ does not have to exist at $x=a$ for the limit to exist at $x=a$.
+        
+        
+        <div class="example">
+            Let $f(x) = \sin(\pi/x)$. Determine the limit by guessing. <br><br> $f(1/n)=0, \forall n$, and $1/n \to 0$. On the other hand, $f(2/n) = \pm 1, \forall n$, and $2/n \to 0$. Thus, $f(x)$ has no proper limit as $x \to 0$.
+        </div>
 
-    <h3>Example</h3>
+        <u>Moral</u>: guessing values could lead to improper conclusions.
 
-    Let $f(x) = \frac{x-1}{x^2-1}$. Determine $\displaystyle \lim_{x \to 1} f(x)$ by calculating $f(x)$ at values close to $x=1$. <br> ans: (0.9,0.5263), (0.99,0.5025), (0.999,0.5003), (1.001,0.4998), (1.01,0.4975), (1.1,0.4762)
+        
+        <div class="example">
+            Let $\displaystyle H(x) = \begin{cases} 1 & x \geq 0 \\ 0 & x \lt 0 \end{cases}$. $H(x)$ is sometimes called the <u>unit step function</u> or <u>Heaviside</u> function. Clearly by inspecting the graph, $H(x)$ has no limit at $x=0$.
+        </div>
 
-    <br><br>
+        <h2>One-sided limits</h2>
 
-    <h3>Example</h3>
+        <div class="definition">
+            $$
+                \lim_{x \to a^+} f(x) = A \;\; \text{and} \;\; \lim_{x \to a^-} f(x) = B
+            $$
 
-    Let $f(x) = \frac{\sin(x)}{x}$. Calculate the limit as $x \to 0$ by guessing values.<br> ans: (-0.1,0.99833), (-0.01,0.99998), (0.01,0.99998), (0.1,0.99833)
+            means $f(x)$ goes to $A$ if $x$ approaches $a$ from the right, while $f(x)$ goes to $B$ when $x$ goes to $a$ from the left.<br><br>
 
-    <br><br><br>
+            The limit exists at $a$ if and only if:
 
-    <u>Moral</u>: $f(x)$ does not have to exist at $x=a$ for the limit to exist at $x=a$.
-    
-    <br><br>
+            $$
+                \lim_{x \to a^+} f(x) = \lim_{x \to a^-} f(x)
+            $$
+        </div>
 
-    <h3>Example</h3>
+        In the previous example, $H(x)$ approaches $1$ if we approach $x=0$ from the right, and $H(x)$ approaches $0$ if we approach $x=0$ from the left. We denote these one-sided limits by:
 
-    Let $f(x) = \sin(\pi/x)$. Determine the limit by guessing. <br><br> $f(1/n)=0, \forall n$, and $1/n \to 0$. On the other hand, $f(2/n) = \pm 1, \forall n$, and $2/n \to 0$. Thus, $f(x)$ has no proper limit as $x \to 0$. 
+        $$
+            \lim_{x \to 0^+} H(x) = 1 \;\; \text{and} \;\; \lim_{x \to 0^-}H(x) = 0
+        $$
 
-    <br><br><br>
+        <h2>Infinite limits</h2>
 
-    <u>Moral</u>: guessing values could lead to improper conclusions.
+        If the value of a function is unbounded if we approach some value $x=a$ from the left or right, we say the limit is $\infty$. Strictly speaking, this is just convention, and the limit still does not exist at $x=a$.
 
-    <br><br>
+        <div class="example">
+            Let $f(x) = \frac{1}{x}$. Then, we would say say:
 
-    <h3>Example</h3>
+            $$
+                \lim_{x \to 0^-} f(x) = -\infty \;\; \text{and} \;\; \lim_{x \to 0^+} f(x) = +\infty
+            $$
+        </div>
 
-    Let $\displaystyle H(x) = \begin{cases} 1 & x \geq 0 \\ 0 & x \lt 0 \end{cases}$. $H(x)$ is sometimes called the <u>unit step function</u> or <u>Heaviside</u> function. Clearly by inspecting the graph, $H(x)$ has no limit at $x=0$.
+        <div clas="example">
+            Let $f(x) = \frac{1}{x^2}$. Then $\lim_{x \to 0} = +\infty$, but again, strictly speaking, this is just notation, and if asked whether or not the limit exists, the answer is <u>no</u>.
+        </div>
 
-    <br><br><br>
-
-    <h2>One-sided limits</h2>
-
-    In the previous example, $H(x)$ approaches $1$ if we approach $x=0$ from the right, and $H(x)$ approaches $0$ if we approach $x=0$ from the left. We denote these one-sided limits by:
-
-    $$
-        \lim_{x \to 0^+} H(x) = 1 \;\; \text{and} \;\; \lim_{x \to 0^-}H(x) = 0
-    $$
-
-    or in general:
-
-    $$
-        \lim_{x \to a^+} f(x) = A \;\; \text{and} \;\; \lim_{x \to a^-} f(x) = B
-    $$
-
-    This means $f(x)$ goes to $A$ if $x$ approaches $a$ from the right, while $f(x)$ goes to $B$ when $x$ goes to $a$ from the left. Hence, the limit exists at $a$ if and only if:
-
-    $$
-        \lim_{x \to a^+} f(x) = \lim_{x \to a^-} f(x)
-    $$
-
-    <h2>Infinite limits</h2>
-
-    If the value of a function is unbounded if we approach some value $x=a$ from the left or right, we say the limit is $\infty$. Strictly speaking, this is just convention, and the limit still does not exist at $x=a$.
-
-    <h3>Example</h3>
-    Let $f(x) = \frac{1}{x}$. Then, we would say say:
-
-    $$
-        \lim_{x \to 0^-} f(x) = -\infty \;\; \text{and} \;\; \lim_{x \to 0^+} f(x) = +\infty
-    $$
-
-    <h3>Example</h3>
-    Let $f(x) = \frac{1}{x^2}$. Then $\lim_{x \to 0} = +\infty$, but again, strictly speaking, this is just notation, and if asked whether or not the limit exists, the answer is <u>no</u>.
-
-    <br><br><br><br>
-
-    <u>Moral</u>: left and right limits might agree, but the limit should still be a finite number to say the limit exists.
-
-    <br><br>
-
-    <u>Definition</u>: If $\displaystyle \lim_{x \to a^{\pm}} f(x) = \pm \infty$, then $f(x)$ is said to have a <u>vertical asymptote</u> at $x=a$.
-
-    <br>
-
-    <h3>Example</h3>
-
-    Let $f(x) = \frac{x-2}{x^2-1}$. Find all vertical asymptotes.
-
-    <br><br><br>
-
-    <h3>Example</h3>
-
-    Let $f(x) = \tan(x)$. Find all vertical asymptotes.<br><br>
+        <u>Moral</u>: left and right limits might agree, but the limit should still be a finite number to say the limit exists.
 
 
-</body></html>
+        <div class="definition">
+            If $\displaystyle \lim_{x \to a^{\pm}} f(x) = \pm \infty$, then $f(x)$ is said to have a <u>vertical asymptote</u> at $x=a$.
+        </div>
+
+        <div class="example">
+            Let $f(x) = \frac{x-2}{x^2-1}$. Find all vertical asymptotes.
+        </div>
+
+        <div class="example">
+            Let $f(x) = \tan(x)$. Find all vertical asymptotes.
+        </div>
+    </body>
+</html>
