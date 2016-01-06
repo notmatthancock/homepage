@@ -89,7 +89,8 @@ def random_piecewise_plot(
         jx = i+0.5; jy = y[i*N+N/2].round(); 
         r = 0.5*(randint(1,4))
         jy += -r if rand() < 0.5 else r
-        plot(jx, jy, 'o', ms=10, markeredgecolor='k', markerfacecolor='k')
+        if rand()<0.5:
+            plot(jx, jy, 'o', ms=10, markeredgecolor='k', markerfacecolor='k')
         plot(jx, y[i*N+N/2], 'o', ms=10, markeredgecolor='k', markerfacecolor='w')
         y[i*N+N/2] = jy
 
@@ -105,7 +106,7 @@ def random_piecewise_plot(
     tight_layout()
     show()
 
-random_piecewise_plot(n_segments=4,n_continuous=2)
-random_piecewise_plot(n_segments=4,n_continuous=2)
-random_piecewise_plot(n_segments=4,n_continuous=2)
-random_piecewise_plot(n_segments=4,n_continuous=2)
+random_piecewise_plot(n_segments=3,n_continuous=2,n_jump_holes=2)
+random_piecewise_plot(n_segments=3,n_continuous=2,n_jump_holes=2)
+random_piecewise_plot(n_segments=3,n_continuous=2,n_jump_holes=2)
+random_piecewise_plot(n_segments=3,n_continuous=2,n_jump_holes=2)

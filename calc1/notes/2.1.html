@@ -37,11 +37,13 @@
 
         <div class="definition">Given a curve, $f$, and two points on the graph of this curve, $(x_1,f(x_1))$ and $(x_2,f(x_2))$, the secant is the straight line through these points.</div>
 
-        <u>Remark</u>: the slope of the secant is found using the slope formula, $m = \frac{f(x_2)-f(x_1)}{x_2-x_1}$. The equation for the secant is found using the point-slope equation for a line: $y-f(x_1) = m (x-x_1)$
+        Recall that the slope of the secant is found using the slope formula, $m = \frac{f(x_2)-f(x_1)}{x_2-x_1}$. The equation for the secant is found using the point-slope equation for a line: $y-f(x_1) = m (x-x_1)$
 
-        <div class="example">Let $f(x)=x^2$. Find the slope of the secant between when $x_1=1$, and when $x_2=-0.9, -0.99, 1.1, 1.01$. What is the slope of the tangent line when $x=1+h$? What happens when $h \to 0$?</div>
+        <div class="example">Let $f(x)=x^2$. Find the slope of the secant between when $x_1=1$, and when $x_2=0.9, 0.99, 1.1, 1.01$. (ans=1.9, 1.99, 2.01, 2.1) What is the slope of the tangent line when $x=1+h$? What happens when $h \to 0$?</div>
 
-        The <u>tangent line</u> of a curve at a point, $(x,f(x))$ is said to "just touch" the curve at that point. Does the previous example suggest a way to give slope of this line by some limiting process? The slope of the tangent line at a point is defined to be the limit of the slopes of the secant line approximations around the tangenet line point.
+        The tangent line of a curve at a point, $(x,f(x))$ is easy to grasp intuitively, but how do we pin it down mathematically? Does the previous example suggest a way to give slope of this line by some limiting process?
+
+        <div class="definition">The slope of the tangent line at a point is defined to be the limit of the slopes of the secant line approximations around the tangenet line point.</div>
 
         <h2>Velocity</h2>
 
