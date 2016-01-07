@@ -18,9 +18,9 @@ a, a:visited { color: #282ffc; }
 a:hover { background-color: #ffff93; }
 
 /* Printer */
-@page { size: auto; margin: 10mm; }
+@page { /*size: auto;*/ margin: 10mm; }
 @media print {
-    body { padding: 0in; font-size: 12px; }
+    body { padding: 0in; font-size: 13px; }
     hr { margin: 2mm 0 4mm 0; }
     div#main { width: 100%; }
 }
