@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../css/notes.css" type="text/css">
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true
+            },
+            TeX: {
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" }
+            },
+            "HTML-CSS": { availableFonts: ["TeX"] }
+          });
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/notes.js"></script>
+    </head>
+    <body>
+        <table id="nav">
+            <tr>
+                <td><a id="prev" href="2.5.html">prev</a></td>
+                <td style="text-align: center;"><a href="../notes/">up</a></td>
+                <td style="text-align: right;"><a href="2.7.html" id="next">next</a></td>
+            </tr>
+        </table>
+
+        <h1>2.6 - Limits at Infinity; Horizontal Asymptotes</h1>
+
+        <div class="example">
+            Let $f(x) = \frac{1}{1+e^{-x}}$. What happens when $x \to \infty$? When $x \to -\infty$?
+            <div class="figure">
+                <img src="./img/2.6.1.svg">
+            </div>
+        </div>
+
+        <div class="definition">
+            If we can make $f(x)$ as close as we want  to some value $L$ by making $x$ sufficiently large, we say:
+            $$
+                \lim_{x \to \infty} f(x) = L
+            $$
+            Limits as $x \to -\infty$ are defined analogously.
+        </div>
+
+        <div class="definition">
+            If $\lim_{x \to \infty} f(x) = L$ (or if $\lim_{x \to -\infty} f(x) = L$, the line, $y=L$, called a horizontal asymptote of $f(x)$.
+        </div>
+     </body>
+</html>
