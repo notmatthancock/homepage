@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../css/notes.css" type="text/css">
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true
+            },
+            TeX: {
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" }
+            },
+            "HTML-CSS": { availableFonts: ["TeX"] }
+          });
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/notes.js"></script>
+    </head>
+    <body>
+        <table id="nav">
+            <tr>
+                <td><a id="prev" href="2.6.html">prev</a></td>
+                <td style="text-align: center;"><a href="../notes/">up</a></td>
+                <td style="text-align: right;"><a href="2.8.html" id="next">next</a></td>
+            </tr>
+        </table>
+
+        <h1>2.7 - Derivatives and Rates of Change</h1>
+
+        <div class="definition">
+            The derivative of a function a point $x=a$ is defined as:
+            $$
+                f'(a) = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+            $$
+            or equivalently,
+            $$
+                f'(a) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+            $$
+
+            $f'(a)$ is the slope of the tangent line of $f(x)$ passing through $(a,f(a))$.
+        </div>
+
+        <div class="example">
+            Find the equation of the tangent line of $f(x)=x^2$ at $x=1$. (ans=factor the numerator)
+        </div>
+
+        <div class="definition">
+            <ol>
+                <li>The average rate of change of $f(x)$ over $[a,b]$ is $\frac{f(a)-f(b)}{a-b}$</li>
+                <li>The derivative of $f(x)$ at $x=a$ is the <u>instantaneous rate of change</u> of $f(x)$ with respect to $x$.</li>
+            </ol>
+        </div>
+
+        <div class="example">
+            The air temperature as you move from the north pole to the south pole is given by $f(x) = 320x(1-x)$. The north pole is at $x=0$ and the south is at $x=1$. What is the temperature and instantaneous rate of change of the temperature at the midway point ($x=1/2$)?
+        </div>
+     </body>
+</html>
