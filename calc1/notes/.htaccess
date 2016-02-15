@@ -1,5 +1,0 @@
-#AuthType Basic
-#AuthName "restricted"
-#AuthUserFile /home/m2/mhancock/public_html/calc1/notes/.htpasswd
-#AuthUserFile ./.htpasswd
-#require valid-user
