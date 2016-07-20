@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Riemann Sums</title>
+        <link rel="stylesheet" href="./jsxgraph.css">
+        <link rel="stylesheet" href="./main.css">
+    </head>
+
+    <body>
+        <h1>Riemann sums</h1>
+        
+        <p>This web app illustrates the concept of <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a> approximations (e.g., left endpoint rule, right endpoint rule, etc.) to definite integrals.</p>
+
+        <div id="plot"></div>
+
+        <br><br>
+
+        <label for="func"><code>f(x) = </code></label><input id="func" value="2*PI*(x+2)*exp(-0.5 * (x+2)^2)">
+
+        <br><br>
+
+        <label for="a"><code>a = </code></label><input id="a" value="-6">,
+        <label for="b"><code>b = </code></label><input id="b" value="6">
+
+        <br><br>
+
+        <label for="sum-type">Sum type:</label>
+        <select id="sum-type">
+            <option value="left">Left endpoint rule</option>
+            <option value="right">Right endpoint rule</option>
+            <option value="middle">Midpoint rule</option>
+            <option value="trapezoidal">Trapezoidal rule</option>
+        </select>
+
+        <div id="footer">
+            This is a modification of the <a href="http://jsxgraph.uni-bayreuth.de/wiki/index.php/Riemann_sums">web app here</a>. This uses the libraries, <a href="http://jsxgraph.uni-bayreuth.de/wp/index.html">JSX Graph</a>, and <a href="https://github.com/silentmatt/js-expression-eval/">js-expression-eval</a>.
+        </div>
+
+        <script type="text/javascript" src="./jsxgraphcore.js" charset="utf-8"></script>
+        <script type="text/javascript" src="./parser.js"></script>
+        <script type="text/javascript" src="./main.js"></script>
+    </body>
+</html>
