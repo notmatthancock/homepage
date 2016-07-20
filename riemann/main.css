@@ -14,7 +14,7 @@ div#plot {
 }
 
 input#func { width: 400px; }
-input#a, input#b { width: 20px; }
+input#a, input#b { width: 40px; }
 
 div#footer {
     padding-top: 20px;
