@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+p { margin: 25px; }
+
+a, a:visited, a:focus { color: blue }
+
+div#plot {
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+input#func { width: 400px; }
+input#a, input#b { width: 40px; }
+
+div#footer {
+    padding-top: 20px;
+    opacity: 0.4;
+}
