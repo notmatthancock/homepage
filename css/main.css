@@ -2,13 +2,15 @@ body {
     font-size: 18px;
     font-family: "Lucida Grande", Helvetica, sans-serif;
     padding: 0 50px 50px 50px;
+    color: #333;
 }
 table { font-size: 18px; }
 table#contact td:first-child { font-weight: bold; padding-right: 15px; }
 
 div#main {
     margin: 0 auto;
-    width: 75%;
+    width: 70%;
+    max-width: 900px;
 }
 
 a,a:visited { color: #dc143c; } /* crimson */

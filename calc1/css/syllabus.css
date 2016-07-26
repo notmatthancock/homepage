@@ -1,0 +1,26 @@
+body { font-size: 16px; font-family: "Lucida Grande", Helvetica, sans-serif; padding: 50px; }
+div#main { width: 75%; margin: 0 auto; }
+table { width: 100%; }
+table td { padding: 4px 0px 4px 0; }
+table#head { font-size: 120%; font-weight: bold; }
+table#head td:nth-child(1) { width: 25%; text-align: left; }
+table#head td:nth-child(2) { width: 50%; text-align: center; }
+table#head td:nth-child(3) { width: 25%; text-align: right; }
+table:not(#head) td:first-child { 
+    padding-right: 5px;
+    vertical-align: top;
+    font-size: 110%;
+    font-weight: bold;
+    width: 27%;
+}
+hr { margin: 10px 0 20px 0; border: 1px solid #ddd; }
+a, a:visited { color: #282ffc; }
+a:hover { background-color: #ffff93; }
+
+/* Printer */
+@page { /*size: auto;*/ margin: 10mm; }
+@media print {
+    body { padding: 0in; font-size: 13px; }
+    hr { margin: 2mm 0 4mm 0; }
+    div#main { width: 100%; }
+}
