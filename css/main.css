@@ -1,8 +1,8 @@
 body {
     font-size: 18px;
-    font-family: "Lucida Grande", Helvetica, sans-serif;
+    font-family: sans-serif;
     padding: 0 50px 50px 50px;
-    color: #333;
+    color: #222;
 }
 table { font-size: 18px; }
 table#contact td:first-child { font-weight: bold; padding-right: 15px; }
