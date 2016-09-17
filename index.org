@@ -1,0 +1,40 @@
+#+title: Matt Hancock's Homepage
+#+name: Matt Hancock
+#+options: html-postamble:nil name:nil title:nil toc:nil
+#+options: H:3 num:0
+#+options: with-fixed-width:yes
+#+html_head: <link rel="stylesheet" type="text/css" href="css/main.css">
+#+html: <div id="main">
+
+* Matt Hancock
+  
+
+| [[./img/me.jpg]] | Hello. I am a PhD candidate in [[http://www.math.fsu.edu/acmath/][Applied and Computational Mathematics]] at [[http://www.fsu.edu][Florida State University]]. Find more information below, or [[http://notmatthancock.github.io][visit my blog]] for more current ramblings. |
+
+** Contact
+
+#+attr_html: :style width:50%;
+| *Office:* | 409 B MCH    |
+| *Email:*  | [[file:email][click to see]] |
+
+* Research
+
+| [[./img/nodule.gif]] | I'm interested in image and signal processing, pattern recognition, and data visualization in the realm of biomedical imaging problems. |
+
+** Publications
+
+| [[./img/lidc-char-paper-s.png]] | *Predictive capabilities of two statistical learning methods for lung nodule malignancy classification using diagnostic image features: an investigation using the Lung Image Database Consortium dataset* /Journal of Medical Imaging/ (submitted) |
+
+** Software
+
+| [[./img/pylidc.png]] | [[https://github.com/pylidc/pylidc][pylidc]]: An object relational mapping (with additional functionality) for the LIDC dataset using sqlalchemy. |
+
+* Teaching
+
+| [[./img/cpp.png]] | [[./acm-computing-seminar][ACM computing seminar (Fall 2016)]] |
+
+** Previous Teaching
+- Calc 1 (Spring 2016, Summer 2016)
+- Precalculus (Fall 2014, Spring 2015)
+
+#+html: <script>var as=document.getElementsByTagName('a'); for(var i=0;i<as.length;i+=1) if (as[i].innerHTML=='click to see') var mail=as[i]; mail.onclick=function() { var es=[109, 104, 97, 110, 99, 111, 99, 107, 64, 109, 97, 116, 104, 46, 102, 115, 117, 46, 101, 100, 117].map( function(n) { return String.fromCharCode(n) } ).join(''); mail.innerHTML=es; mail.setAttribute('href','mailto:'+es); mail.onclick=null; return false;}</script>

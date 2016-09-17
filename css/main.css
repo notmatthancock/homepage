@@ -1,17 +1,22 @@
 body {
     font-size: 18px;
     font-family: sans-serif;
-    padding: 0 50px 50px 50px;
     color: #222;
-}
-table { font-size: 18px; }
-table#contact td:first-child { font-weight: bold; padding-right: 15px; }
-
-div#main {
-    margin: 0 auto;
     width: 70%;
     max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #fff;
 }
+
+div#content { width: 100%; }
+div#main { margin: 0 auto; }
+h2 { margin-top: 40px; border-bottom: 3px solid #808080; }
+
+table { width: 100%; border: 0; }
+table tbody, colgroup { border: 0; }
+table td { vertical-align: middle; }
+table td > img { padding-right: 50px; }
 
 a,a:visited { color: #dc143c; } /* crimson */
 a:hover { background-color: #ffe566; } /* gold */
