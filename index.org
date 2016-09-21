@@ -23,7 +23,7 @@
 
 ** Publications
 
-| [[./img/lidc-char-paper-s.png]] | Matthew C. Hancock, J.F. Magnan. *Predictive capabilities of two statistical learning methods for lung nodule malignancy classification using diagnostic image features: an investigation using the Lung Image Database Consortium dataset*. /Journal of Medical Imaging/ (submitted)           |                                                                                                                                                                                                                                                                  |
+| [[./img/lidc-char-paper-s.png]] | Matthew C. Hancock, J.F. Magnan. *Predictive capabilities of statistical learning methods for lung nodule malignancy classification using diagnostic image features: an investigation using the Lung Image Database Consortium dataset*. /Journal of Medical Imaging/ (submitted)            |                                                                                                                                                                                                                                                                  |
 
 ** Software
 
