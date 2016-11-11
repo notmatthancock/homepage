@@ -27,3 +27,6 @@ a:hover { background-color: #ffe566; } /* gold */
     div#main { width: 100%; margin: 0; padding: 0; }
     img { max-width: 70px; }
 }
+
+     ::selection { background-color: #ffe566; }
+::-moz-selection { background-color: #ffe566; }
