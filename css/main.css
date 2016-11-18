@@ -12,7 +12,6 @@ body {
 div#content { width: 100%; }
 div#main { margin: 0 auto; }
 h1,h2 { margin-top: 40px; border-bottom: 3px solid gray; }
-h1,h2,h3,h4 { font-family: serif; }
 
 table { width: 100%; border: 0; }
 table td { vertical-align: middle; }
@@ -22,11 +21,13 @@ table#contact td:first-child { width: 100px; }
 a,a:visited { color: #dc143c; } /* crimson */
 a:hover { background-color: #ffe566; } /* gold */
 
+/* Gold highlight */
+     ::selection { background-color: #ffe566; }
+::-moz-selection { background-color: #ffe566; }
+
+/* Mobile. */
 @media only screen and (max-device-width: 480px) {
     body { width: 90%; padding: 0; font-size: 12px; }
     div#main { width: 100%; margin: 0; padding: 0; }
     img { max-width: 70px; }
 }
-
-     ::selection { background-color: #ffe566; }
-::-moz-selection { background-color: #ffe566; }
