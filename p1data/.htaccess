@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Program 1 data ... "
-AuthUserFile /home/m2/mhancock/public_html/p1data/.htpasswd
-Require valid-user
